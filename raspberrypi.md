@@ -6,6 +6,7 @@
 - [Setting AFP](https://pimylifeup.com/raspberry-pi-afp/)
 - Plex
   - [Setup Plex for pi4](https://pimylifeup.com/raspberry-pi-plex-server/)
+  - [Setup Plex for pi4](https://www.clarkle.com/notes/install-plex-raspberry-pi/)
   - [Setup permission issues 1](https://www.clarkle.com/notes/install-plex-raspberry-pi/)
   - [Setup permission issues 2](https://forums.plex.tv/t/using-ext-ntfs-or-other-format-drives-internal-or-external-on-linux/198544)
   - use `plex user`
