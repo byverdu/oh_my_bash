@@ -52,7 +52,7 @@
 
 > sudo systemctl restart smbd
 > sudo reboot
-``
+```
 
 | ![](./df.jpeg) |
 |:--:|
