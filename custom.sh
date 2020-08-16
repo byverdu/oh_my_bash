@@ -32,6 +32,8 @@ alias myserver="ssh marla@146.185.129.77"
 alias myip="echo $(ipconfig getifaddr $(route get example.com | grep -o 'en[^d]'))"
 alias ports="lsof -n | grep LISTEN"
 alias chromeRaw="open /Applications/Google\ Chrome.app --args --user-data-dir=\"/var/tmp/Chrome_dev_2\" --disable-web-security --disable-site-isolation-trials"
+alias mongo-start="brew services start mongodb-community@4.4"
+alias mongo-stop="brew services stop mongodb-community@4.4"
 
 # Functions
 

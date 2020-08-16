@@ -54,6 +54,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 brew tap homebrew/cask-fonts
 brew cask install font-fira-code
 
+# mongo
+brew tap mongodb/brew
+brew install mongodb-community@4.4
+
 # Cloning repos
 # Dracula theme
 
