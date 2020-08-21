@@ -36,6 +36,9 @@ alias chromeRaw="open /Applications/Google\ Chrome.app --args --user-data-dir=\"
 alias mongo-start="brew services start mongodb-community@4.4"
 alias mongo-stop="brew services stop mongodb-community@4.4"
 
+# ENV variables
+export YOUTUBE_API_KEY=AIzaSyA_VHLzDgKPPcI-f5QH0nHB092rJSS_a9s
+
 # Functions
 
 # AWS shortcut functions
