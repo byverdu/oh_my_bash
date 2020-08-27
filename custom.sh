@@ -51,10 +51,10 @@ function killport () {
   echo "port killed at $1"
 }
 
-function removeNumbersFromFileName($fileExtension) {
-	for f in *.$fileExtension
-    do
-      mv "$f" "${f//[0-9]*/}"
-      # mv "$f" "${f//[0-9]*\-/}" => will remove hyphens (-) too
+function removeNumbersFromFileName () {
+	for f in *$fileExtension
+  do
+    mv "$f" "${f//[0-9]*\-/}"
+    # mv "$f" "${f//[0-9]*\-/}" => will remove hyphens (-) too
 	done
 }
