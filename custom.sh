@@ -29,15 +29,11 @@ alias g-name="git commit --amend --author=\"Albert Vallverdu <byverdu@gmail.com>
 
 # Aliases for quick access commands
 alias server="python -m SimpleHTTPServer 8888"
-alias myserver="ssh marla@146.185.129.77"
 alias myip="echo $(ipconfig getifaddr $(route get example.com | grep -o 'en[^d]'))"
 alias ports="lsof -n | grep LISTEN"
 alias chromeRaw="open /Applications/Google\ Chrome.app --args --user-data-dir=\"/var/tmp/Chrome_dev_2\" --disable-web-security --disable-site-isolation-trials"
 alias mongo-start="brew services start mongodb-community@4.4"
 alias mongo-stop="brew services stop mongodb-community@4.4"
-
-# ENV variables
-export YOUTUBE_API_KEY=AIzaSyA_VHLzDgKPPcI-f5QH0nHB092rJSS_a9s
 
 # Functions
 
@@ -58,3 +54,5 @@ function removeNumbersFromFileName () {
     # mv "$f" "${f//[0-9]*\-/}" => will remove hyphens (-) too
 	done
 }
+
+source ~/Projects/repos/config/hidden.sh
