@@ -28,6 +28,10 @@ const validRoutes = {
   '/': '/'
 }
 
+/**
+ * @param {http.IncomingMessage} req
+ * @param {http.ServerResponse} res
+ */
 function staticFileHandler(req, res) {
   const fileName = req.url === validRoutes["/"] ? path.join(__dirname, './index.html') : path.join(__dirname, req.url)
 
@@ -42,9 +46,9 @@ function staticFileHandler(req, res) {
       .catch(e => {
         console.log(e)
         if (e.code === 'ENOENT') {
-          res.writeHead(404, { 'Content-Type': contentTypes[fileExtension] });
+          res.writeHead(404);
         } else {
-          res.writeHead(500, { 'Content-Type': contentTypes[fileExtension] });
+          res.writeHead(500);
         }
         res.write(JSON.stringify(e));
         res.end()
@@ -52,12 +56,20 @@ function staticFileHandler(req, res) {
   }
 }
 
+/**
+ * @param {http.IncomingMessage} req
+ * @param {http.ServerResponse} res
+ */
 function newRouteHandler(req, res) {
   if (req.url === validRoutes.new) {
     res.end('yeiiii')
   }
 }
 
+/**
+ * @param {http.IncomingMessage} req
+ * @param {http.ServerResponse} res
+ */
 function notFoundRouteHandler(req, res) {
 
   if (!contentTypes[path.extname(req.url)] && !Object.keys(validRoutes).includes(req.url)) {
