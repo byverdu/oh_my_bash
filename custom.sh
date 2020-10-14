@@ -55,4 +55,8 @@ function removeNumbersFromFileName () {
 	done
 }
 
+function getAllFiles () {
+  find $1 -type f -name "*.$2" > $2Files.txt
+}
+
 source ~/Projects/repos/config/hidden.sh
