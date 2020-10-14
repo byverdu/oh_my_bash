@@ -1,6 +1,7 @@
 const http = require('http')
 const { promises } = require('fs')
 const path = require('path')
+const url = require('url');
 
 const PORT = 3000 || process.env.PORT
 
@@ -61,8 +62,11 @@ function staticFileHandler(req, res) {
  * @param {http.ServerResponse} res
  */
 function newRouteHandler(req, res) {
-  if (req.url === validRoutes.new) {
-    res.end('yeiiii')
+
+  if (req.url.includes(validRoutes.new)) {
+    const { query } = url.parse(req.url, true);
+
+    res.end(JSON.stringify(query))
   }
 }
 
