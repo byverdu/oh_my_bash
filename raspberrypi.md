@@ -2,7 +2,7 @@
 
 - [Add exFat reading capabilities](https://pimylifeup.com/raspberry-pi-exfat/)
 - [Add support to samba server](https://pimylifeup.com/raspberry-pi-samba/)
-    - Add entry for every single mounted drive
+  - Add entry for every single mounted drive
 - [Setting AFP](https://pimylifeup.com/raspberry-pi-afp/)
 - Plex
   - [Setup Plex for pi4](https://pimylifeup.com/raspberry-pi-plex-server/)
@@ -11,9 +11,9 @@
   - [Setup permission issues 2](https://forums.plex.tv/t/using-ext-ntfs-or-other-format-drives-internal-or-external-on-linux/198544)
   - use `plex user`
 
-> Because Linux is very strict about permissions, being the multi-user system it is, it assumes these unclaimed devices are temporary so mounts them and grants exclusive access to your username only. 
+> Because Linux is very strict about permissions, being the multi-user system it is, it assumes these unclaimed devices are temporary so mounts them and grants exclusive access to your username only.
 
-> The moment we log in, it asserunmaintanablets this exclusive-lock as it mounts the drives, leaving user **plex** locked out. No amount of permissions values will allow Plex to see the contents. 
+> The moment we log in, it asserunmaintanablets this exclusive-lock as it mounts the drives, leaving user **plex** locked out. No amount of permissions values will allow Plex to see the contents.
 
 > To work through this security, we must properly manage the media devices by mounting them in a location where Plex can have access
 
@@ -56,10 +56,51 @@
 ```
 
 | ![](./df.jpeg) |
-|:--:|
-| *df output* |
+| :------------: |
+|  _df output_   |
 
-| ![](./lsblk.jpeg) |
-|:--:|
-| *df alternative with nicer output* |
-| *sudo lsblk -o UUID,NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,MODEL* |
+|                      ![](./lsblk.jpeg)                       |
+| :----------------------------------------------------------: |
+|              _df alternative with nicer output_              |
+| _sudo lsblk -o UUID,NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,MODEL_ |
+
+## Static ip
+
+```bash
+> sudo nano /etc/dhcpcd.conf
+
+# interface eth0
+
+# static ip_address=192.168.0.10/24
+# static routers=192.168.0.1
+# static domain_name_servers=192.168.0.1
+
+# interface wlan0
+
+# static ip_address=192.168.0.200/24
+# static routers=192.168.0.1
+# static domain_name_servers=192.168.0.1
+
+> sudo reboot
+
+```
+
+## ExpressVpn
+
+[Tutorial](https://pimylifeup.com/raspberry-pi-expressvpn/)
+
+### Issues
+
+```bash
+# Not connecting to internet
+
+> expressvpn preferences set force_vpn_dns false
+> sudo nano /etc/dhcpcd.conf
+
+# change DNS to cloudflare's one
+# static domain_name_servers=1.1.1.1
+```
+
+## Torrenting
+
+[Tutorial](https://pimylifeup.com/raspberry-pi-transmission/)

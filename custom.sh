@@ -4,7 +4,7 @@
 echo "🤘 \x1b[35mSetting zsh theme, alias and functions....\x1b[0m 🤘"
 
 ZSH_THEME=""
-PROMPT='%{$fg_bold[green]%}➜ %{$fg_bold[green]%}%p %{$fg_bold[blue]%}%~ $(git_prompt_info)% $(git_prompt_status)% %{$reset_color%}
+PROMPT='%{$fg_bold[green]%} %T %B%30 ➜%{$fg_bold[green]%}%p %{$fg_bold[blue]%}`pwd` $(git_prompt_info)% $(git_prompt_status)% %{$reset_color%}
 $ '
 ZSH_THEME_GIT_PROMPT_CLEAN=") %{$fg_bold[green]%}✔ "
 ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚"
@@ -34,6 +34,8 @@ alias ports="lsof -n | grep LISTEN"
 alias chromeRaw="open /Applications/Google\ Chrome.app --args --user-data-dir=\"/var/tmp/Chrome_dev_2\" --disable-web-security --disable-site-isolation-trials"
 alias mongo-start="brew services start mongodb-community@4.4"
 alias mongo-stop="brew services stop mongodb-community@4.4"
+alias iya="cd ~/Projects/iya"
+alias repos="cd ~/Projects/repos"
 
 # Functions
 
