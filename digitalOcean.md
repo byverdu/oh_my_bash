@@ -28,6 +28,10 @@ Host ssh_name
 ## Server setup for user_name
 
 ```bash
+# set git config
+> git config --global user.name "byverdu"
+> git config --global user.email "byverdu@gmail.com"
+
 # install zsh
 > sudo apt install zsh
 > sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
