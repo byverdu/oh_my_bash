@@ -9,7 +9,7 @@ CONFIG_PATH="/etc/nginx/sites-available/$1"
 
 echo "creating block server for ${CONFIG_PATH}"
 
-echo "server {
+sudo echo "server {
   server_name $1 www.$1;
 
   location / {
