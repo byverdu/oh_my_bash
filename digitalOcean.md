@@ -113,7 +113,7 @@ Host ssh_name
 
 # create certificates for domains specified at server_name
 > sudo certbot --nginx -d test.byverdu.es -d www.test.byverdu.es
-> sudo systemctl nginx reload
+> sudo systemctl reload nginx
 
 # Result config
 # server {
