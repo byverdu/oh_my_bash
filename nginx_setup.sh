@@ -20,4 +20,16 @@ echo "server {
     proxy_cache_bypass \$http_upgrade;
     proxy_pass  http://localhost:$2;
   }
-}" | sudo tee -a $CONFIG_PATH
+}" >> $CONFIG_PATH
+
+# symlink between available and enabled
+ln -s /etc/nginx/sites-available/$CONFIG_PATH /etc/nginx/sites-enabled
+
+# open port
+ufw allow $2/tcp
+
+# check port was opened
+ufw status
+
+# reload nginx
+sudo systemctl reload nginx

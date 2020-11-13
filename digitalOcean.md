@@ -97,7 +97,7 @@ Host ssh_name
 
 # port needs to be open in order to access the app
 > sudo ufw allow 9090/tcp
-> sudo systemctl restart nginx
+> sudo systemctl reload nginx
 ```
 
 ## [Enable https in nginx](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-18-04)
