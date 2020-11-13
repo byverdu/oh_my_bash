@@ -9,7 +9,7 @@ CONFIG_PATH="/etc/nginx/sites-available/$1"
 
 echo "creating block server for ${CONFIG_PATH}"
 
-sudo echo "server {
+echo "server {
   server_name $1 www.$1;
 
   location / {
@@ -20,4 +20,4 @@ sudo echo "server {
     proxy_cache_bypass \$http_upgrade;
     proxy_pass  http://localhost:$2;
   }
-}" >> $CONFIG_PATH
+}" | sudo tee -a $CONFIG_PATH
