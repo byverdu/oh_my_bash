@@ -22,8 +22,10 @@ echo "server {
   }
 }" >> $CONFIG_PATH
 
+sleep 10
+
 # symlink between available and enabled
-ln -s /etc/nginx/sites-available/$CONFIG_PATH /etc/nginx/sites-enabled
+ln -s $CONFIG_PATH /etc/nginx/sites-enabled
 
 # open port
 ufw allow $2/tcp
