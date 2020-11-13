@@ -62,6 +62,7 @@ Host ssh_name
 
 # go to root folder
 > cd /
+# create this folder to serve static content
 > sudo mkdir -p var/www/test.byverdu.es/html
 > sudo chown -R $USER:$USER var/www/test.byverdu.es/html
 > sudo chmod -R 755 var/www/test.byverdu.es/html
@@ -78,7 +79,7 @@ Host ssh_name
 # Config to serve Application with proxy
 
 # server {
-#   root /var/www/test.byverdu.es/html;
+#   root /var/www/test.byverdu.es/html; # specify root to serve static content
 #   server_name test.byverdu.es www.test.byverdu.es;
 
 #   location / {
