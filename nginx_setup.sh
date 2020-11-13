@@ -22,7 +22,7 @@ echo "server {
   }
 }" >> $CONFIG_PATH
 
-sleep 10
+sleep 5
 
 # symlink between available and enabled
 ln -s $CONFIG_PATH /etc/nginx/sites-enabled
