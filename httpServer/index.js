@@ -3,7 +3,7 @@ const { promises } = require('fs')
 const path = require('path')
 const url = require('url');
 
-const PORT = 3000 || process.env.PORT
+const PORT = process.env.PORT || 3000
 
 const contentTypes = {
   '.html': 'text/html',
