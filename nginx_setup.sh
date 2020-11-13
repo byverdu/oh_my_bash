@@ -7,6 +7,7 @@ END_COLOR="\033[0m"
 
 CERTBOT_PATH="include \/etc\/letsencrypt"
 SSL_CYPHERS="ssl_ciphers EECDH+CHACHA20:EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:\!MD5;"
+IP6_SSL_DIRECTIVE="listen [::]:443 ssl http2 ipv6only=on;"
 
 if [ -z "$1" ] ||  [ -z "$2" ] ; then
   echo -e "${ERROR}2 arguments required, a domain.name and port number${END_COLOR}"
@@ -67,8 +68,13 @@ echo -e "${WARN}Seting http2${END_COLOR}"
 echo -e "${WARN}Modifying ${CONFIG_PATH}${END_COLOR}"
 
 sed -i 's/\b443 ssl\b/& http2/' ${CONFIG_PATH}
+sed -i "/\b443 ssl\b/a ${IP6_SSL_DIRECTIVE}" ${CONFIG_PATH}
 sed -i "s/\(.*${CERTBOT_PATH}.*\)/#\1/" ${CONFIG_PATH}
 sed -i "/\(.*${CERTBOT_PATH}.*\)/a ${SSL_CYPHERS}" ${CONFIG_PATH}
+
+echo -e "${SUCCESS}##################  New Server Block Config ######################{END_COLOR}"
+cat $CONFIG_PATH
+echo -e "${SUCCESS}#########################################{END_COLOR}"
 
 systemctl reload nginx
 
