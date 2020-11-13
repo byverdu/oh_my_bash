@@ -66,7 +66,7 @@ curl -I -l https://$1
 echo -e "${WARN}Seting http2${END_COLOR}"
 echo -e "${WARN}Modifying ${CONFIG_PATH}${END_COLOR}"
 
-sed 's/\b443 ssl\b/& http2/' ${CONFIG_PATH}
+sed -i 's/\b443 ssl\b/& http2/' ${CONFIG_PATH}
 sed -i "s/\(.*${CERTBOT_PATH}.*\)/#\1/" ${CONFIG_PATH}
 sed -i "/\(.*${CERTBOT_PATH}.*\)/a ${SSL_CYPHERS}" ${CONFIG_PATH}
 
