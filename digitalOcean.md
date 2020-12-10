@@ -182,3 +182,31 @@ Host ssh_name
 # find "include /etc/nginx/sites-enabled/*;" and append below line
 > add_header Strict-Transport-Security "max-age=15768000; includeSubDomains" always;
 ```
+
+## [Install Docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04)
+
+```bash
+> sudo apt update
+
+# install a few prerequisite packages which let apt use packages over HTTPS
+> sudo apt install apt-transport-https ca-certificates curl software-properties-common
+
+# add the GPG key for the official Docker repository to your system
+> curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+# Add the Docker repository to APT sources
+> sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+
+
+# update the package database with the Docker packages from the newly added repo
+> sudo apt update
+
+# Make sure you are about to install from the Docker repo instead of the default Ubuntu repo
+> apt-cache policy docker-ce
+
+# install docker
+> sudo apt install docker-ce
+
+# Docker should now be installed, the daemon started, and the process enabled to start on boot. Check that it’s running
+> sudo systemctl status docker
+```

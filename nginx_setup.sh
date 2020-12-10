@@ -72,9 +72,9 @@ sed -i "/\b443 ssl\b/a ${IP6_SSL_DIRECTIVE}" ${CONFIG_PATH}
 sed -i "s/\(.*${CERTBOT_PATH}.*\)/#\1/" ${CONFIG_PATH}
 sed -i "/\(.*${CERTBOT_PATH}.*\)/a ${SSL_CYPHERS}" ${CONFIG_PATH}
 
-echo -e "${SUCCESS}##################  New Server Block Config ######################{END_COLOR}"
+echo -e "${SUCCESS}##################  New Server Block Config ######################${END_COLOR}"
 cat $CONFIG_PATH
-echo -e "${SUCCESS}#########################################{END_COLOR}"
+echo -e "${SUCCESS}#########################################${END_COLOR}"
 
 systemctl reload nginx
 
