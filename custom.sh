@@ -61,4 +61,27 @@ function getAllFiles () {
   find $1 -type f -name "*.$2" > $2Files.txt
 }
 
-source ~/Projects/repos/config/hidden.sh
+function printColors () {
+  red='\033[0;31m'
+  green='\033[0;32m'
+  orange='\033[1;33m'
+  end="\033[0m"
+
+  case $1 in
+    "red")
+      color=$red
+      ;;
+
+    "green")
+      color=$green
+      ;;
+
+    "orange")©
+      color=$orange
+      ;;
+  esac
+
+  echo -e "${color}$2${end}"
+}
+
+source ./hidden.sh
