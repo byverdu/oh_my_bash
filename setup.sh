@@ -76,7 +76,7 @@ git clone https://github.com/dracula/iterm.git
 
 
 echo "# Appending custom bash config" >>  ~/.zshrc
-echo "source ~/Projects/repos/config/custom.sh" >>  ~/.zshrc
+echo "source ~/Projects/repos/oh_my_bash/custom.sh" >>  ~/.zshrc
 
 
 echo "✋✋✋ \x1b[32msetup script has finished\x1b[0m ✋✋✋"
