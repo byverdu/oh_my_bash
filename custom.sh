@@ -36,6 +36,7 @@ alias mongo-start="brew services start mongodb-community@4.4"
 alias mongo-stop="brew services stop mongodb-community@4.4"
 alias iya="cd ~/Projects/iya"
 alias repos="cd ~/Projects/repos"
+alias create_repo="$GLOBAL_PATH/oh_my_bash && ./git_repos.sh"
 
 # Functions
 
@@ -76,7 +77,7 @@ function printColors () {
       color=$green
       ;;
 
-    "orange")©
+    "orange")
       color=$orange
       ;;
   esac
@@ -84,4 +85,4 @@ function printColors () {
   echo -e "${color}$2${end}"
 }
 
-source ./hidden.sh
+source $GLOBAL_PATH/oh_my_bash/hidden.sh

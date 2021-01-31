@@ -58,6 +58,12 @@ brew cask install font-fira-code
 brew tap mongodb/brew
 brew install mongodb-community@4.4
 
+# node version manager
+brew install n
+
+# GitHub CLI
+brew install gh
+
 # Cloning repos
 # Dracula theme
 
