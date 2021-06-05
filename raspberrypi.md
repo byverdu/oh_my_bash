@@ -104,3 +104,17 @@
 ## Torrenting
 
 [Tutorial](https://pimylifeup.com/raspberry-pi-transmission/)
+
+## ssh configs
+
+- `ssh-keygen -t rsa`
+
+```bash
+# ~/.ssh/config
+Host pi-1
+  User pi
+  HostName 192.168.50.15
+  IdentityFile  ~/.ssh/pi-1
+```
+
+- `cat pi-1.pub >> /home/pi/.ssh/authorized_keys`
