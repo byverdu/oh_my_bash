@@ -31,7 +31,7 @@ alias g-name="git commit --amend --author=\"Albert Vallverdu <byverdu@gmail.com>
 alias server="python -m SimpleHTTPServer 8888"
 alias myip="echo $(ipconfig getifaddr $(route get example.com | grep -o 'en[^d]'))"
 alias ports="lsof -n | grep LISTEN"
-alias chromeRaw="open /Applications/Google\ Chrome.app --args --user-data-dir=\"/var/tmp/Chrome_dev_2\" --disable-web-security --disable-site-isolation-trials"
+alias chromeRaw="cd / && open /Applications/Google\ Chrome\ Canary.app --args --user-data-dir=\"/var/tmp/Chrome_dev_2\" --disable-web-security --disable-site-isolation-trials"
 alias mongo-start="brew services start mongodb-community@4.4"
 alias mongo-stop="brew services stop mongodb-community@4.4"
 alias iya="cd ~/Projects/iya"
