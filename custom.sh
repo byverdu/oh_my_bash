@@ -37,6 +37,8 @@ alias mongo-stop="brew services stop mongodb-community@4.4"
 alias iya="cd ~/Projects/iya"
 alias repos="cd ~/Projects/repos"
 alias create_repo="$GLOBAL_PATH/oh_my_bash && ./git_repos.sh"
+alias git_name="git config --global user.name $1"
+alias git_email="git config --global user.email $1"
 
 # Functions
 

@@ -45,8 +45,15 @@ brew install python3
 # slack
 brew install --cask slack
 
-# ZSH
-brew install zsh
+# plex server
+brew install --cask plex
+
+# expressvpn
+brew install --cask expressvpn
+
+# transmission
+brew install --cask transmission
+
 # install Oh my Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
