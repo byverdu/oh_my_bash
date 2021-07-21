@@ -2,14 +2,37 @@
 
 - [Add exFat reading capabilities](https://pimylifeup.com/raspberry-pi-exfat/)
 - [Add support to samba server](https://pimylifeup.com/raspberry-pi-samba/)
+
   - Add entry for every single mounted drive
+
+  ```bash
+  # smb config
+  > sudo apt-get install samba samba-common-bin
+  > mkdir /home/pi/shared
+  > sudo nano /etc/samba/smb.conf
+  # Add config
+  > sudo smbpasswd -a pi
+  > sudo systemctl restart smbd
+  ```
+
 - [Setting AFP](https://pimylifeup.com/raspberry-pi-afp/)
 - Plex
+
   - [Setup Plex for pi4](https://pimylifeup.com/raspberry-pi-plex-server/)
   - [Setup Plex for pi4](https://www.clarkle.com/notes/install-plex-raspberry-pi/)
   - [Setup permission issues 1](https://www.clarkle.com/notes/install-plex-raspberry-pi/)
   - [Setup permission issues 2](https://forums.plex.tv/t/using-ext-ntfs-or-other-format-drives-internal-or-external-on-linux/198544)
   - use `plex user`
+
+  ```bash
+  # plex config
+  > sudo apt-get install apt-transport-https
+  > curl https://downloads.plex.tv/plex-keys/PlexSign.key | sudo apt-key add -
+  > echo deb https://downloads.plex.tv/repo/deb public main | sudo tee /etc/apt/sources.list.d/plexmediaserver.list
+  > sudo apt-get update
+  > sudo apt install plexmediaserver
+  > sudo reboot
+  ```
 
 > Because Linux is very strict about permissions, being the multi-user system it is, it assumes these unclaimed devices are temporary so mounts them and grants exclusive access to your username only.
 
@@ -29,6 +52,7 @@
 # create directory where you'll mount the SSD and change ownership
 > mkdir home/pi/Plex
 > sudo chown -R plex:plex Plex/media
+# Try with pi user
 
 # mount the drive
 > sudo mount /dev/sdb2 home/pi/Plex
@@ -40,16 +64,18 @@
 # add entry to samba config so the drive can be found
 > sudo nano /etc/samba/smb.conf
 
-# [Plex media]
-# Comment = Plex media folder
-# Path = /home/pi/Plex
-# Browseable = yes
-# Writeable = Yes
-# only guest = no
-# create mask = 0777
-# directory mask = 0777
-# Public = yes
-# Guest ok = yes
+[Plex media]
+Comment = Plex media folder
+Path = /home/pi/Shared/Plex
+Browseable = yes
+Writeable = Yes
+only guest = no
+create mask = 0777
+directory mask = 0777
+Public = yes
+Guest ok = yes
+read only = no
+valid users = pi
 
 > sudo systemctl restart smbd
 > sudo reboot

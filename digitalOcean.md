@@ -63,12 +63,12 @@ Host ssh_name
 # go to root folder
 > cd /
 # create this folder to serve static content
-> sudo mkdir -p var/www/test.byverdu.es/html
+> sudo mkdir -p /var/www/test.byverdu.es/html
 > sudo chown -R $USER:$USER var/www/test.byverdu.es/html
-> sudo chmod -R 755 var/www/test.byverdu.es/html
+> sudo chmod -R 755 /var/www/test.byverdu.es/html
 
 # create html file to access it without node app
-> nano var/www/test.byverdu.es/html/index.html
+> nano /var/www/test.byverdu.es/html/index.html
 
 # For Nginx to serve content, a server block has to be created with the correct directives. Instead of modifying the default configuration create a new one
 
