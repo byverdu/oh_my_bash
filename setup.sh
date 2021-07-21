@@ -64,6 +64,9 @@ brew install n
 # GitHub CLI
 brew install gh
 
+# VLC
+brew cask install vlc
+
 # Cloning repos
 # Dracula theme
 
