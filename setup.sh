@@ -10,31 +10,31 @@ echo "🤘 \x1b[35mInstalling brew packages....\x1b[0m 🤘"
 
 # VSCode
 brew tap homebrew/cask
-brew cask install visual-studio-code
+brew install --cask visual-studio-code
 
 # iTerm
-brew cask install iterm2
+brew install --cask iterm2
 
 # postman
-brew cask install postman
+brew install --cask postman
 
 # dropbox
-brew cask install dropbox
+brew install --cask dropbox
 
 # docker
-brew cask install docker
+brew install --cask docker
 
 # whatsapp
-brew cask install whatsapp
+brew install --cask whatsapp
 
 # alfred
-brew cask install alfred
+brew install --cask alfred
 
 # robo-3t
-brew cask install robo-3t
+brew install --cask robo-3t
 
 # brave-browser
-brew cask install brave-browser
+brew install --cask brave-browser
 
 # yarn
 brew install yarn
@@ -43,7 +43,7 @@ brew install yarn
 brew install python3
 
 # slack
-brew cask install slack
+brew install --cask slack
 
 # ZSH
 brew install zsh
@@ -52,7 +52,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 # Fira Code
 brew tap homebrew/cask-fonts
-brew cask install font-fira-code
+brew install --cask font-fira-code
 
 # mongo
 brew tap mongodb/brew
@@ -65,7 +65,7 @@ brew install n
 brew install gh
 
 # VLC
-brew cask install vlc
+brew install --cask vlc
 
 # Cloning repos
 # Dracula theme
