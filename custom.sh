@@ -26,6 +26,7 @@ alias g-hi="git log --pretty=format:'%Cred%h%Creset %Cblue%ad%Creset | %s %Cgree
 alias g-s="git status"
 alias g-del-rem="git push origin --delete"
 alias g-name="git commit --amend --author=\"Albert Vallverdu <byverdu@gmail.com>\" --no-edit"
+alias g-d="git branch | grep -v 'master' | xargs git branch -D"
 
 # Aliases for quick access commands
 alias server="python -m SimpleHTTPServer 8888"
