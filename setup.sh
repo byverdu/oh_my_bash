@@ -74,6 +74,12 @@ brew install gh
 # VLC
 brew install --cask vlc
 
+# vnc-viewer
+brew install vnc-viewer 
+
+# binance
+brew install binance 
+
 # Cloning repos
 # Dracula theme
 
