@@ -40,8 +40,13 @@ alias repos="cd ~/Projects/repos"
 alias create_repo="$GLOBAL_PATH/oh_my_bash && ./git_repos.sh"
 alias git_name="git config --global user.name $1"
 alias git_email="git config --global user.email $1"
+alias iya-login="aws sso login --profile iya"
 
 # Functions
+
+function iya-clone () {
+  git clone codecommit::eu-west-1://iya@$1
+}
 
 # AWS shortcut functions
 function awsLamUpdateCode () {
