@@ -46,6 +46,11 @@ alias iya-login="aws sso login --profile iya"
 
 function iya-clone () {
   git clone codecommit::eu-west-1://iya@$1
+  cd $1
+  git config user.email "albert.vallverdu@reachplc.com"
+  git config user.name "Albert Vallverdu"
+  npm install
+  code .
 }
 
 # AWS shortcut functions

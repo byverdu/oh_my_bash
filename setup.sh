@@ -71,14 +71,13 @@ brew install n
 # GitHub CLI
 brew install gh
 
-# VLC
 brew install --cask vlc
 
-# vnc-viewer
 brew install vnc-viewer 
 
-# binance
-brew install binance 
+brew install binance
+
+brew install shellcheck
 
 # Cloning repos
 # Dracula theme
