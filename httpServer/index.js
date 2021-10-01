@@ -2,27 +2,11 @@ const http = require('http')
 const { promises } = require('fs')
 const path = require('path')
 const url = require('url');
+const mime = require('mime-types');
 
 const PORT = process.env.PORT || 3000
+const cacheFilesContent = {}
 
-const contentTypes = {
-  '.html': 'text/html',
-  '.js': 'text/javascript',
-  '.css': 'text/css',
-  '.json': 'application/json',
-  '.png': 'image/png',
-  '.jpg': 'image/jpg',
-  '.gif': 'image/gif',
-  '.svg': 'image/svg+xml',
-  '.wav': 'audio/wav',
-  '.mp4': 'video/mp4',
-  '.woff': 'application/font-woff',
-  '.ttf': 'application/font-ttf',
-  '.eot': 'application/vnd.ms-fontobject',
-  '.otf': 'application/font-otf',
-  '.wasm': 'application/wasm',
-  '.ico': 'image/x-icon'
-};
 
 const validRoutes = {
   new: 'new',
@@ -35,12 +19,19 @@ const validRoutes = {
  */
 function staticFileHandler(req, res) {
   const fileName = req.url === validRoutes["/"] ? path.join(__dirname, './index.html') : path.join(__dirname, req.url)
+  const contentType = mime.contentType(path.extname(fileName))
 
-  const fileExtension = path.extname(fileName);
+  if (cacheFilesContent[fileName]) {
+    console.log(`${fileName} is served from cache`)
 
-  if (fileExtension) {
+    res.writeHead(200, { 'Content-Type': contentType });
+    res.end(cacheFilesContent[fileName])
+  } else {
     promises.readFile(fileName)
       .then(fileContent => {
+        console.log(`${fileName} has been saved in the cache`)
+
+        cacheFilesContent[fileName] = fileContent;
         res.writeHead(200, { 'Content-Type': contentTypes[fileExtension] });
         res.end(fileContent)
       })
