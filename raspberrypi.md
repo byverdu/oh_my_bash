@@ -133,14 +133,14 @@ valid users = pi
 
 ## ssh configs
 
-- `ssh-keygen -t rsa`
+- `ssh-keygen -t rsa` on client
 
 ```bash
-# ~/.ssh/config
+# ~/.ssh/config on client
 Host pi-1
   User pi
   HostName 192.168.50.15
   IdentityFile  ~/.ssh/pi-1
 ```
 
-- `cat pi-1.pub >> /home/pi/.ssh/authorized_keys`
+- `cat pi-1.pub >> /home/pi/.ssh/authorized_keys` on server

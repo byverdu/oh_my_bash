@@ -35,28 +35,14 @@ alias ports="lsof -n | grep LISTEN"
 alias chromeRaw="cd / && open /Applications/Google\ Chrome\ Canary.app --args --user-data-dir=\"/var/tmp/Chrome_dev_2\" --disable-web-security --disable-site-isolation-trials"
 alias mongo-start="brew services start mongodb-community@4.4"
 alias mongo-stop="brew services stop mongodb-community@4.4"
-alias iya="cd ~/Projects/iya"
 alias repos="cd ~/Projects/repos"
 alias create_repo="$GLOBAL_PATH/oh_my_bash && ./git_repos.sh"
 alias git_name="git config --global user.name $1"
 alias git_email="git config --global user.email $1"
-alias iya-login="aws sso login --profile iya"
 
 # Functions
 
-function iya-clone () {
-  git clone codecommit::eu-west-1://iya@$1
-  cd $1
-  git config user.email "albert.vallverdu@reachplc.com"
-  git config user.name "Albert Vallverdu"
-  npm install
-  code .
-}
-
 # AWS shortcut functions
-function awsLamUpdateCode () {
-    aws lambda update-function-code --function-name $1 $2
-}
 
 function killport () {
   lsof -ti tcp:$1 | xargs kill
@@ -99,3 +85,5 @@ function printColors () {
 }
 
 source $GLOBAL_PATH/oh_my_bash/hidden.sh
+source $GLOBAL_PATH/oh_my_bash/job.sh
+
