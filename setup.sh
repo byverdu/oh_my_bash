@@ -1,12 +1,29 @@
 #!/bin/bash
 
+# shellcheck source=/dev/null
+source "$GLOBAL_PATH/oh_my_bash/custom.sh"
+
+echo "What type of config do you want to install?";
+
+read -r CONFIG_TYPE;
+
+if [ "$CONFIG_TYPE" == "home" ];
+  then
+    printColors green "Setting a home machine config"
+  else
+    printColors green "Setting a job machine config"
+fi
+
+printColors green "installing Oh my Zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 # Installing Brew
-echo "🤘 \x1b[35mInstalling brew....\x1b[0m 🤘"
+printColors green "🤘 Installing brew.... 🤘"
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # Installing dependencies through brew
-echo "🤘 \x1b[35mInstalling brew packages....\x1b[0m 🤘"
+printColors green "🤘 Installing brew packages.... 🤘"
 
 # VSCode
 brew tap homebrew/cask
@@ -18,17 +35,8 @@ brew install --cask iterm2
 # postman
 brew install --cask postman
 
-# dropbox
-brew install --cask dropbox
-
 # docker
 brew install --cask docker
-
-# whatsapp
-brew install --cask whatsapp
-
-# alfred
-brew install --cask alfred
 
 # robo-3t
 brew install --cask robo-3t
@@ -45,18 +53,6 @@ brew install python3
 # slack
 brew install --cask slack
 
-# plex server
-brew install --cask plex
-
-# expressvpn
-brew install --cask expressvpn
-
-# transmission
-brew install --cask transmission
-
-# install Oh my Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
 # Fira Code
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
@@ -66,32 +62,56 @@ brew tap mongodb/brew
 brew install mongodb-community@4.4
 
 # node version manager
-brew install n
+brew install nvm
 
 # GitHub CLI
 brew install gh
 
-brew install --cask vlc
-
-brew install vnc-viewer 
-
-brew install binance
-
+# shell bash syntax checker
 brew install shellcheck
 
+if [ "$CONFIG_TYPE" == "home" ];
+  then
+    printColors green "Installing personal packages"
+
+    # vlc desktop app
+    brew install --cask vlc
+
+    # vnc client app
+    brew install vnc-viewer
+
+    # binance desktop app
+    brew install binance
+
+    # plex server
+    brew install --cask plex
+
+    # expressvpn
+    brew install --cask expressvpn
+
+    # transmission
+    brew install --cask transmission
+
+    # dropbox
+    brew install --cask dropbox
+
+    # whatsapp
+    brew install --cask whatsapp
+
+    # alfred
+    brew install --cask alfred
+fi
+
 # Cloning repos
-# Dracula theme
+printColors green "🤘 Installing git repos.... 🤘"
+cd ~/Projects/repos || exit
 
-echo "🤘 \x1b[35mInstalling git repos....\x1b[0m 🤘"
-cd ~/Projects/repos
+printColors green "🤘 Installing dracula theme.... 🤘"
 
-echo "🤘 \x1b[35mInstalling dracula theme....\x1b[0m 🤘"
 git clone https://github.com/dracula/iterm.git
-
 
 
 echo "# Appending custom bash config" >>  ~/.zshrc
 echo "source ~/Projects/repos/oh_my_bash/custom.sh" >>  ~/.zshrc
 
-
-echo "✋✋✋ \x1b[32msetup script has finished\x1b[0m ✋✋✋"
+printColors green "✋✋✋ setup script has finished ✋✋✋"
