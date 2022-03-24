@@ -14,6 +14,12 @@ if [ "$CONFIG_TYPE" == "home" ];
     printColors green "Setting a job machine config"
 fi
 
+printColors green "setting github info"
+
+# setting github info
+git config --global user.email "byverdu@gmail.com"
+git config --global user.name "Albert Vallverdu"
+
 printColors green "installing Oh my Zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
@@ -24,6 +30,9 @@ printColors green "🤘 Installing brew.... 🤘"
 
 # Installing dependencies through brew
 printColors green "🤘 Installing brew packages.... 🤘"
+
+# Chrome
+brew install --cask google-chrome
 
 # VSCode
 brew tap homebrew/cask
