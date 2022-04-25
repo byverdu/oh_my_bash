@@ -86,4 +86,3 @@ function printColors () {
 
 source $GLOBAL_PATH/oh_my_bash/hidden.sh
 source $GLOBAL_PATH/oh_my_bash/job.sh
-
