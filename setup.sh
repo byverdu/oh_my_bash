@@ -1,18 +1,29 @@
 #!/bin/bash
 
+HOST_NAME=$(hostname | cut -d"." -f1)
 # shellcheck source=/dev/null
-source "$GLOBAL_PATH/oh_my_bash/custom.sh"
+source "/Users/$HOST_NAME/Projects/oh_my_bash/custom.sh"
 
-echo "What type of config do you want to install?";
-
-read -r CONFIG_TYPE;
-
-if [ "$CONFIG_TYPE" == "home" ];
-  then
-    printColors green "Setting a home machine config"
-  else
-    printColors green "Setting a job machine config"
+if [ -d ~/.oh-my-zsh ]; then
+  printColors orange  "oh-my-zsh is installed"
+ else
+  printColors green "Installing Oh my Zsh"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
+
+# Installing Brew
+printColors green "🤘 Installing brew.... 🤘"
+
+if ! command -v brew &> /dev/null
+then
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    exit
+  else
+  printColors orange  "brew is installed"
+fi
+
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/$HOST_NAME/.zprofile
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 
 printColors green "setting github info"
 
@@ -20,19 +31,15 @@ printColors green "setting github info"
 git config --global user.email "byverdu@gmail.com"
 git config --global user.name "Albert Vallverdu"
 
-printColors green "installing Oh my Zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-# Installing Brew
-printColors green "🤘 Installing brew.... 🤘"
-
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
 # Installing dependencies through brew
 printColors green "🤘 Installing brew packages.... 🤘"
 
 # Chrome
 brew install --cask google-chrome
+
+# Firefox
+brew tap homebrew/cask-versions
+brew install --cask firefox-developer-edition
 
 # VSCode
 brew tap homebrew/cask
@@ -48,10 +55,10 @@ brew install --cask postman
 brew install --cask docker
 
 # robo-3t
-brew install --cask robo-3t
+# brew install --cask robo-3t
 
 # brave-browser
-brew install --cask brave-browser
+# brew install --cask brave-browser
 
 # yarn
 brew install yarn
@@ -79,48 +86,55 @@ brew install gh
 # shell bash syntax checker
 brew install shellcheck
 
-if [ "$CONFIG_TYPE" == "home" ];
-  then
-    printColors green "Installing personal packages"
+# fig app terminal tool
+brew install fig
 
-    # vlc desktop app
-    brew install --cask vlc
+  # expressvpn
+  brew install --cask expressvpn
 
-    # vnc client app
-    brew install vnc-viewer
+  # vlc desktop app
+  # brew install --cask vlc
 
-    # binance desktop app
-    brew install binance
+  # vnc client app
+  # brew install vnc-viewer
 
-    # plex server
-    brew install --cask plex
+  # binance desktop app
+  # brew install binance
 
-    # expressvpn
-    brew install --cask expressvpn
+  # plex server
+  # brew install --cask plex
 
-    # transmission
-    brew install --cask transmission
+  # transmission
+  # brew install --cask transmission
 
-    # dropbox
-    brew install --cask dropbox
+  # dropbox
+  # brew install --cask dropbox
 
-    # whatsapp
-    brew install --cask whatsapp
+  # whatsapp
+  # brew install --cask whatsapp
 
-    # alfred
-    brew install --cask alfred
-fi
+  # alfred
+  # brew install --cask alfred
 
 # Cloning repos
 printColors green "🤘 Installing git repos.... 🤘"
-cd ~/Projects/repos || exit
+cd ~/Projects || exit
 
 printColors green "🤘 Installing dracula theme.... 🤘"
 
 git clone https://github.com/dracula/iterm.git
 
+# Appending to zshrc
+printColors green "🤘 Appending to zshrc 🤘"
 
 echo "# Appending custom bash config" >>  ~/.zshrc
-echo "source ~/Projects/repos/oh_my_bash/custom.sh" >>  ~/.zshrc
+echo "export GLOBAL_PATH=/Users/$HOST_NAME/Projects" >>  ~/.zshrc
+echo "source ~/Projects/oh_my_bash/custom.sh" >>  ~/.zshrc
+
+printColors green "🤘 NVM setup 🤘"
+mkdir ~/.nvm
+echo "export NVM_DIR=\"$HOME/.nvm\"" >>  ~/.zshrc
+echo "[ -s $NVM_DIR/nvm.sh ] && \. $NVM_DIR/nvm.sh  # This loads nvm" >>  ~/.zshrc
+echo "[ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\"  # This loads nvm bash_completion" >>  ~/.zshrc
 
 printColors green "✋✋✋ setup script has finished ✋✋✋"
