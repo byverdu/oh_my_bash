@@ -31,7 +31,7 @@ printColors green "Creating repo at GitHub"
 # -d, --description string  Description of repository
 # --public Make the new repository public
 
-gh repo create $1 -y -d "$1 description" --public || { printColors red "Creating $1 failed" ; exit 1; }
+# gh repo create $1 -y -d "$1 description" --public || { printColors red "Creating $1 failed" ; exit 1; }
 
 printColors green "Creating repo files"
 

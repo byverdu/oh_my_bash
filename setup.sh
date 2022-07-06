@@ -60,6 +60,9 @@ brew install --cask docker
 # brave-browser
 # brew install --cask brave-browser
 
+# node
+brew install node
+
 # yarn
 brew install yarn
 
