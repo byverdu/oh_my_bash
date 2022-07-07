@@ -84,7 +84,9 @@ function printColors () {
 }
 
 function create_repo () {
-    # Create github repos programatically
+  # Create github repos programatically
+
+  unset GITHUB_TOKEN
 
   gh --version || { printColors red "Github CLI is not installed https://github.com/cli/cli#installation" ; exit 1; }
 
@@ -110,8 +112,7 @@ function create_repo () {
 
   # create a repository with a specific name
   # gh repo create $1
-  # -y, --confirm Confirm the submission directly
-  # -d, --description string  Description of repository
+  # -d, --description string Description of repository
   # --public Make the new repository public
 
   printColors green "Creating repo files"
@@ -125,11 +126,16 @@ function create_repo () {
 
   npm init --yes
 
-  gh repo create $1 -d "$1 description" --public || { printColors red "Creating $1 failed" ; }
-
   git add .
   git commit -m "initial repo setup"
-  git push origin master
+
+  gh repo create $1 -d "$1 description" --public || { printColors red "Creating $1 failed" ; }
+
+  git branch -M master
+  
+  git remote add origin git@github.com:byverdu/"$1".git
+
+  git push -u origin master
 
   printColors green "All done :)"
 }
