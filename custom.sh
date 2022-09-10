@@ -1,5 +1,7 @@
 #!/bin/bash
 
+CONFIG_TYPE="personal"
+
 # oh-my-zsh theme
 echo "🤘 \x1b[35mSetting zsh theme, alias and functions....\x1b[0m 🤘"
 
@@ -140,5 +142,9 @@ function create_repo () {
   printColors green "All done :)"
 }
 
-source $GLOBAL_PATH/oh_my_bash/hidden.sh
-source $GLOBAL_PATH/oh_my_bash/job.sh
+source "$GLOBAL_PATH/oh_my_bash/hidden.sh"
+
+if [ $CONFIG_TYPE = "job" ]
+then
+source "$GLOBAL_PATH/oh_my_bash/job.sh"
+fi
