@@ -1,13 +1,14 @@
 #!/bin/bash
+# Create github repos programmatically
 
-source $GLOBAL_PATH/oh_my_bash/custom.sh
-    # Create github repos programatically
+# shellcheck source=/dev/null
+source "$GLOBAL_PATH"/oh_my_bash/custom.sh
 
 unset GITHUB_TOKEN
 
 gh --version || { printColors red "Github CLI is not installed https://github.com/cli/cli#installation" ; exit 1; }
 
-if [ -z $1 ]
+if [ -z "$1" ]
   then
     printColors red "Repository name must exist"
     exit 1
@@ -46,7 +47,7 @@ npm init --yes
 git add .
 git commit -m "initial repo setup"
 
-gh repo create $1 -d "$1 description" --public || { printColors red "Creating $1 failed" ; }
+gh repo create "$1" -d "$1 description" --public || { printColors red "Creating $1 failed" ; }
 
 git branch -M master
 
