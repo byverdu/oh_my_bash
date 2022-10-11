@@ -45,70 +45,64 @@ alias git_email="git config --global user.email $1"
 
 # AWS shortcut functions
 
-function killport () {
+function killport() {
   lsof -ti tcp:$1 | xargs kill
   echo "port killed at $1"
 }
 
-function removeNumbersFromFileName () {
-	for f in *$fileExtension
-  do
+function removeNumbersFromFileName() {
+  for f in *$fileExtension; do
     mv "$f" "${f//[0-9]*\-/}"
     # mv "$f" "${f//[0-9]*\-/}" => will remove hyphens (-) too
-	done
+  done
 }
 
-function getAllFiles () {
-  find $1 -type f -name "*.$2" > $2Files.txt
+function getAllFiles() {
+  find $1 -type f -name "*.$2" >$2Files.txt
 }
 
-function printColors () {
+function printColors() {
   red='\033[0;31m'
   green='\033[0;32m'
   orange='\033[1;33m'
   end="\033[0m"
 
   case $1 in
-    "red")
-      color=$red
-      ;;
+  "red")
+    color=$red
+    ;;
 
-    "green")
-      color=$green
-      ;;
+  "green")
+    color=$green
+    ;;
 
-    "orange")
-      color=$orange
-      ;;
+  "orange")
+    color=$orange
+    ;;
   esac
 
   echo -e "${color}$2${end}"
 }
 
-function create_repo () {
+function create_repo() {
   # Create github repos programatically
 
   unset GITHUB_TOKEN
 
-  gh --version || { printColors red "Github CLI is not installed https://github.com/cli/cli#installation" ; exit 1; }
+  gh --version || {
+    printColors red "Github CLI is not installed https://github.com/cli/cli#installation"
+    exit 1
+  }
 
-  if [ -z $1 ]
-    then
-      printColors red "Repository name must exist"
-      exit 1
+  if [ -z $1 ]; then
+    printColors red "Repository name must exist"
+    exit 1
   fi
 
   mkdir "$GLOBAL_PATH/$1"
-  cd "$GLOBAL_PATH/$1" || exit  
+  cd "$GLOBAL_PATH/$1" || exit
 
   git init
-
-  printColors green "Updating git name and email"
-
-  git config user.email "byverdu@gmail.com"
-  git config user.name "Albert Vallverdu"
-
-  cat .git/config
 
   printColors green "Creating repo at GitHub"
 
@@ -119,23 +113,25 @@ function create_repo () {
 
   printColors green "Creating repo files"
 
-  echo "# $1" >> README.md
+  echo "# $1" >>README.md
 
   echo -e "node_modules
   yarn-error.log
   .DS_Store
-  .vscode" >> .gitignore
+  .vscode" >>.gitignore
 
   npm init --yes
 
+  printColors green "Changing default branch to master"
+  git branch -M master
+  git remote add origin git@github.com:byverdu/"$1".git
+
+  printColors green "Committing files"
   git add .
   git commit -m "initial repo setup"
 
-  gh repo create $1 -d "$1 description" --public || { printColors red "Creating $1 failed" ; }
-
-  git branch -M master
-  
-  git remote add origin git@github.com:byverdu/"$1".git
+  printColors green "Creating repo with gh CLI"
+  gh repo create $1 -d "$1 description" --public || { printColors red "Creating $1 failed"; }
 
   git push -u origin master
 
@@ -144,7 +140,6 @@ function create_repo () {
 
 source "$GLOBAL_PATH/oh_my_bash/hidden.sh"
 
-if [ $CONFIG_TYPE = "job" ]
-then
-source "$GLOBAL_PATH/oh_my_bash/job.sh"
+if [ $CONFIG_TYPE = "job" ]; then
+  source "$GLOBAL_PATH/oh_my_bash/job.sh"
 fi
