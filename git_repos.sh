@@ -6,16 +6,18 @@ source "$GLOBAL_PATH"/oh_my_bash/custom.sh
 
 unset GITHUB_TOKEN
 
-gh --version || { printColors red "Github CLI is not installed https://github.com/cli/cli#installation" ; exit 1; }
+gh --version || {
+  printColors red "Github CLI is not installed https://github.com/cli/cli#installation"
+  exit 1
+}
 
-if [ -z "$1" ]
-  then
-    printColors red "Repository name must exist"
-    exit 1
+if [ -z "$1" ]; then
+  printColors red "Repository name must exist"
+  exit 1
 fi
 
 mkdir "$GLOBAL_PATH/$1"
-cd "$GLOBAL_PATH/$1" || exit  
+cd "$GLOBAL_PATH/$1" || exit
 
 git init
 
@@ -35,19 +37,21 @@ printColors green "Creating repo at GitHub"
 
 printColors green "Creating repo files"
 
-echo "# $1" >> README.md
+echo "# $1" >>README.md
 
 echo -e "node_modules
 yarn-error.log
 .DS_Store
-.vscode" >> .gitignore
+.vscode
+/dist
+/coverage" >>.gitignore
 
 npm init --yes
 
 git add .
 git commit -m "initial repo setup"
 
-gh repo create "$1" -d "$1 description" --public || { printColors red "Creating $1 failed" ; }
+gh repo create "$1" -d "$1 description" --public || { printColors red "Creating $1 failed"; }
 
 git branch -M master
 
