@@ -46,7 +46,7 @@ alias git_email="git config --global user.email $1"
 # AWS shortcut functions
 
 function killport() {
-  lsof -ti tcp:$1 | xargs kill
+  lsof -ti tcp:$1 | xargs kill || echo "killport() failed"
   echo "port killed at $1"
 }
 
