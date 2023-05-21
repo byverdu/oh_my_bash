@@ -84,6 +84,15 @@ function printColors() {
   echo -e "${color}$2${end}"
 }
 
+function findAndMove() {
+  if [ -z "$1" ] || [ -z "$2" ]; then
+    printColors red "find pattern must be a string regex and destination path must be relative to the actual folder. Both need to be defined"
+    return
+  fi
+
+  find . -maxdepth 1 -name "$1" -exec mv {} "$2" \;
+}
+
 function create_repo() {
   # Create github repos programatically
 
