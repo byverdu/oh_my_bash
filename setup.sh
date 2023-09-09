@@ -2,11 +2,11 @@
 
 HOST_NAME=$(hostname | cut -d"." -f1)
 # shellcheck source=/dev/null
-source "/Users/$HOST_NAME/Projects/oh_my_bash/custom.sh"
+source "/Users/$HOST_NAME/Projects/repos/oh_my_bash/custom.sh"
 
 if [ -d ~/.oh-my-zsh ]; then
-  printColors orange  "oh-my-zsh is installed"
- else
+  printColors orange "oh-my-zsh is installed"
+else
   printColors green "Installing Oh my Zsh"
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
@@ -14,22 +14,21 @@ fi
 # Installing Brew
 printColors green "🤘 Installing brew.... 🤘"
 
-if ! command -v brew &> /dev/null
-then
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    exit
-  else
-  printColors orange  "brew is installed"
+if ! command -v brew &>/dev/null; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  exit
+else
+  printColors orange "brew is installed"
 fi
 
-  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/$HOST_NAME/.zprofile
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>/Users/$HOST_NAME/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 printColors green "setting github info"
 
 # setting github info
-git config --global user.email "byverdu@gmail.com"
-git config --global user.name "Albert Vallverdu"
+# git config --global user.email "byverdu@gmail.com"
+# git config --global user.name "Albert Vallverdu"
 
 # Installing dependencies through brew
 printColors green "🤘 Installing brew packages.... 🤘"
@@ -38,8 +37,8 @@ printColors green "🤘 Installing brew packages.... 🤘"
 brew install --cask google-chrome
 
 # Firefox
-brew tap homebrew/cask-versions
-brew install --cask firefox-developer-edition
+# brew tap homebrew/cask-versions
+# brew install --cask firefox-developer-edition
 
 # VSCode
 brew tap homebrew/cask
@@ -92,36 +91,42 @@ brew install shellcheck
 # fig app terminal tool
 brew install fig
 
-  # expressvpn
-  brew install --cask expressvpn
+# expressvpn
+brew install --cask expressvpn
 
-  # vlc desktop app
-  # brew install --cask vlc
+# higlight shell commands
+brew install zsh-syntax-highlighting
 
-  # vnc client app
-  # brew install vnc-viewer
+# pnpm
+brew install pnpm
 
-  # binance desktop app
-  # brew install binance
+# vlc desktop app
+# brew install --cask vlc
 
-  # plex server
-  # brew install --cask plex
+# vnc client app
+# brew install vnc-viewer
 
-  # transmission
-  # brew install --cask transmission
+# binance desktop app
+# brew install binance
 
-  # dropbox
-  # brew install --cask dropbox
+# plex server
+# brew install --cask plex
 
-  # whatsapp
-  # brew install --cask whatsapp
+# transmission
+# brew install --cask transmission
 
-  # alfred
-  # brew install --cask alfred
+# dropbox
+# brew install --cask dropbox
+
+# whatsapp
+# brew install --cask whatsapp
+
+# alfred
+# brew install --cask alfred
 
 # Cloning repos
 printColors green "🤘 Installing git repos.... 🤘"
-cd ~/Projects || exit
+cd ~/Projects/repos || exit
 
 printColors green "🤘 Installing dracula theme.... 🤘"
 
@@ -130,14 +135,18 @@ git clone https://github.com/dracula/iterm.git
 # Appending to zshrc
 printColors green "🤘 Appending to zshrc 🤘"
 
-echo "# Appending custom bash config" >>  ~/.zshrc
-echo "export GLOBAL_PATH=/Users/$HOST_NAME/Projects" >>  ~/.zshrc
-echo "source ~/Projects/oh_my_bash/custom.sh" >>  ~/.zshrc
+echo "# Appending custom bash config" >>~/.zshrc
+
+echo "export GLOBAL_PATH=/Users/$HOST_NAME/Projects" >>~/.zshrc
+echo "source ~/Projects/repos/oh_my_bash/custom.sh" >>~/.zshrc
+echo "source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >>~/.zshrc
 
 printColors green "🤘 NVM setup 🤘"
+
 mkdir ~/.nvm
-echo "export NVM_DIR=\"$HOME/.nvm\"" >>  ~/.zshrc
-echo "[ -s $NVM_DIR/nvm.sh ] && \. $NVM_DIR/nvm.sh  # This loads nvm" >>  ~/.zshrc
-echo "[ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\"  # This loads nvm bash_completion" >>  ~/.zshrc
+echo "export NVM_DIR=\"$HOME/.nvm\"" >>~/.zshrc
+echo "[ -s $NVM_DIR/nvm.sh ] && \. $NVM_DIR/nvm.sh  # This loads nvm" >>~/.zshrc
+echo "[ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\"  # This loads nvm bash_completion" >>~/.zshrc
 
 printColors green "✋✋✋ setup script has finished ✋✋✋"
+printColors green "✋✋✋ remember to install BetterDisplay ✋✋✋"
