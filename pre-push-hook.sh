@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Run only tests depending on which folder has files changed
+
 # husky runs the script using "sh" which will stop the execution as soon as any command returns a non-zero status
 # github issue https://github.com/typicode/husky/issues/971
 # the below solution works on Mac but not on Windows
