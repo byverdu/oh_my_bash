@@ -53,8 +53,9 @@ brew install --cask postman
 # docker
 brew install --cask docker
 
-# robo-3t
+# mongo UI clients
 # brew install --cask robo-3t
+# brew install --cask studio-3t
 
 # brave-browser
 # brew install --cask brave-browser

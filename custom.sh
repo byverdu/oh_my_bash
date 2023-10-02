@@ -46,7 +46,7 @@ alias git_email="git config --global user.email $1"
 # AWS shortcut functions
 
 function killport() {
-  lsof -ti tcp:$1 | xargs kill || echo "killport() failed"
+  lsof -ti tcp:"$1" | xargs kill || echo "killport() failed"
   echo "port killed at $1"
 }
 
@@ -58,7 +58,7 @@ function removeNumbersFromFileName() {
 }
 
 function getAllFiles() {
-  find $1 -type f -name "*.$2" >$2Files.txt
+  find "$1" -type f -name "*.$2" >"$2"Files.txt
 }
 
 function printColors() {
@@ -103,7 +103,7 @@ function create_repo() {
     exit 1
   }
 
-  if [ -z $1 ]; then
+  if [ -z "$1" ]; then
     printColors red "Repository name must exist"
     exit 1
   fi
@@ -140,7 +140,7 @@ function create_repo() {
   git commit -m "initial repo setup"
 
   printColors green "Creating repo with gh CLI"
-  gh repo create $1 -d "$1 description" --public || { printColors red "Creating $1 failed"; }
+  gh repo create "$1" -d "$1 description" --public || { printColors red "Creating $1 failed"; }
 
   git push -u origin master
 
