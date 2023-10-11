@@ -43,3 +43,28 @@ if [ $? -eq 0 ]; then
 else
   npm run test:frontend && npm run test:components
 fi
+
+# git diff [<options>] [--] <path>
+# git diff --name-only, show only names of changed files
+# git diff --diff-filter=ACMR, Added-Copied-Modified-Renamed
+# git diff current_branch_name -- paths_to_filter
+
+# cut -f 1 -d '.' remove file extension
+# tr "\n" "|" replace new lines with the "|" char
+# sed 's/.$//' remove last char ( a "|" char is added at the end on the previous command)
+
+# COMPONENTS_FOLDER=libs/components/src/lib
+# APPLICATION_FOLDER=apps/frontend/src
+# CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+# FILES_WITH_CHANGES=$(git diff --diff-filter=ACMR --name-only "origin/${CURRENT_BRANCH}" -- "${COMPONENTS_FOLDER}" "${APPLICATION_FOLDER}")
+
+# FILES_PATHS=$(echo "${FILES_WITH_CHANGES}" | cut -f 1 -d '.' | tr "\n" "|" | sed 's/.$//')
+
+# if [ "${FILES_WITH_CHANGES}" = "" ]; then
+#     echo "No tests found to run."
+
+#     exit 0;
+# fi
+
+# npx jest -- --findRelatedTests "${FILES_PATHS}"
