@@ -25,6 +25,8 @@ printColors green "Updating git name and email"
 
 git config user.email "byverdu@gmail.com"
 git config user.name "Albert Vallverdu"
+# allow git to push to the current branch even if it is not tracking any branch
+git config --global --add --bool push.autoSetupRemote true
 
 cat .git/config
 
