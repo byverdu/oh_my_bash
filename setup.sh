@@ -70,7 +70,7 @@ brew install yarn
 brew install python3
 
 # slack
-brew install --cask slack
+# brew install --cask slack
 
 # Fira Code
 brew tap homebrew/cask-fonts
@@ -100,6 +100,18 @@ brew install zsh-syntax-highlighting
 
 # pnpm
 brew install pnpm
+
+# betterdisplay
+brew install --cask betterdisplay
+
+# microsoft teams
+brew install --cask microsoft-teams
+
+# runjs
+brew install --cask runjs
+
+# outlook
+brew install --cask microsoft-outlook
 
 # vlc desktop app
 # brew install --cask vlc

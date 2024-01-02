@@ -2,7 +2,7 @@
 # Create github repos programmatically
 
 # shellcheck source=/dev/null
-source "$GLOBAL_PATH"/oh_my_bash/custom.sh
+source "$GLOBAL_PATH"/repos/oh_my_bash/custom.sh
 
 unset GITHUB_TOKEN
 
@@ -16,8 +16,8 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-mkdir "$GLOBAL_PATH/$1"
-cd "$GLOBAL_PATH/$1" || exit
+mkdir "$GLOBAL_PATH/repos/$1"
+cd "$GLOBAL_PATH/repos/$1" || exit
 
 git init
 
@@ -46,7 +46,8 @@ yarn-error.log
 .DS_Store
 .vscode
 /dist
-/coverage" >>.gitignore
+/coverage
+.env" >>.gitignore
 
 npm init --yes
 
@@ -57,7 +58,7 @@ gh repo create "$1" -d "$1 description" --public || { printColors red "Creating 
 
 git branch -M master
 
-git remote add origin git@github.com:byverdu/"$1".git
+git remote add origin git@github.com-byverdu:byverdu/"$1".git # "-byverdu:" is used so we can have 2 git accounts in the same computer
 
 git push -u origin master
 
