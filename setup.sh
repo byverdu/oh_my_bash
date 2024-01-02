@@ -113,6 +113,9 @@ brew install --cask runjs
 # outlook
 brew install --cask microsoft-outlook
 
+# logitech options
+brew install --cask logitech-options
+
 # vlc desktop app
 # brew install --cask vlc
 
