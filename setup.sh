@@ -80,9 +80,6 @@ brew install --cask font-fira-code
 brew tap mongodb/brew
 brew install mongodb-community@4.4
 
-# node version manager
-brew install nvm
-
 # GitHub CLI
 brew install gh
 
@@ -151,15 +148,32 @@ git clone https://github.com/dracula/iterm.git
 # Appending to zshrc
 printColors green "🤘 Appending to zshrc 🤘"
 
+printf "\n" >>~/.zshrc
 echo "# Appending custom bash config" >>~/.zshrc
 
 echo "export GLOBAL_PATH=/Users/$HOST_NAME/Projects" >>~/.zshrc
 echo "source ~/Projects/repos/oh_my_bash/custom.sh" >>~/.zshrc
 echo "source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >>~/.zshrc
 
+printf "\n" >>~/.zshrc
 printColors green "🤘 NVM setup 🤘"
 
-mkdir ~/.nvm
+echo "# NVM config" >>~/.zshrc
+
+cd ~ || exit 1
+
+git clone https://github.com/nvm-sh/nvm.git .nvm
+
+cd ~/.nvm || exit 1
+
+LATEST_NVM_TAG=$(git describe --abbrev=0 --tags)
+
+git checkout "$LATEST_NVM_TAG"
+
+# shellcheck source=/dev/null
+. ./nvm.sh
+
+printf "\n"
 echo "export NVM_DIR=\"$HOME/.nvm\"" >>~/.zshrc
 echo "[ -s $NVM_DIR/nvm.sh ] && \. $NVM_DIR/nvm.sh  # This loads nvm" >>~/.zshrc
 echo "[ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\"  # This loads nvm bash_completion" >>~/.zshrc
