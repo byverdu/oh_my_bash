@@ -21,6 +21,13 @@ else
   printColors orange "brew is installed"
 fi
 
+read -r -p "Do you want to install Xcode Command Line Tools? (y/n)" response
+
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]; then
+  printColors green "🤘 Installing Xcode Command Line Tools.... 🤘"
+  xcode-select --install
+fi
+
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>/Users/$HOST_NAME/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -68,6 +75,9 @@ brew install yarn
 
 # python3
 brew install python3
+
+# print tree directory on terminal
+brew install tree
 
 # slack
 # brew install --cask slack
