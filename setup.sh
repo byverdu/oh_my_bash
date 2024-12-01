@@ -60,6 +60,9 @@ brew install --cask postman
 # docker
 brew install --cask docker
 
+# deno
+brew install deno
+
 # mongo UI clients
 # brew install --cask robo-3t
 # brew install --cask studio-3t
