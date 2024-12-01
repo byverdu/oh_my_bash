@@ -86,6 +86,8 @@ brew install tree
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
 
+brew install --cask font-jetbrains-mono
+
 # mongo
 brew tap mongodb/brew
 brew install mongodb-community@4.4
@@ -96,8 +98,11 @@ brew install gh
 # shell bash syntax checker
 brew install shellcheck
 
-# fig app terminal tool
-brew install fig
+# amazon-q app terminal tool
+brew install --cask amazon-q
+
+# like cat but pretty formatted
+brew install bat
 
 # expressvpn
 brew install --cask expressvpn
