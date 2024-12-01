@@ -146,3 +146,5 @@ source "$GLOBAL_PATH/repos/oh_my_bash/hidden.sh"
 if [ $CONFIG_TYPE = "job" ]; then
   source "$GLOBAL_PATH/repos/oh_my_bash/job.sh"
 fi
+
+export BAT_THEME="base16"
