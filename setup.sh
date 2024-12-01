@@ -119,6 +119,9 @@ brew install pnpm
 # betterdisplay
 brew install --cask betterdisplay
 
+# rectangle window manager
+brew install --cask rectangle
+
 # microsoft teams
 brew install --cask microsoft-teams
 
@@ -130,6 +133,9 @@ brew install --cask microsoft-outlook
 
 # logitech options
 brew install --cask logitech-options
+
+# supercharged VS-Code at a price
+brew install --cask cursor 
 
 # vlc desktop app
 # brew install --cask vlc
