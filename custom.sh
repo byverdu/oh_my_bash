@@ -1,22 +1,7 @@
 #!/bin/bash
 
-CONFIG_TYPE="personal"
-
 # oh-my-zsh theme
-echo "🤘 \x1b[35mSetting zsh theme, alias and functions....\x1b[0m 🤘"
-
-ZSH_THEME=""
-PROMPT='%{$fg_bold[green]%} %T %B%30 ➜%{$fg_bold[green]%}%p %{$fg_bold[blue]%}`pwd` $(git_prompt_info)% $(git_prompt_status)% %{$reset_color%}
-$ '
-ZSH_THEME_GIT_PROMPT_CLEAN=") %{$fg_bold[green]%}✔ "
-ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚"
-ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✹"
-ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%} ✖"
-ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%} ➜"
-ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ═"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
-
-# Alias
+printf "🤘 \x1b[35mSetting zsh theme, alias and functions....\x1b[0m 🤘\n"
 
 # Aliases for git
 alias g-a="git add"
@@ -43,8 +28,6 @@ alias git_email="git config --global user.email $1"
 
 # Functions
 
-# AWS shortcut functions
-
 function killport() {
   lsof -ti tcp:"$1" | xargs kill || echo "killport() failed"
   echo "port killed at $1"
@@ -58,7 +41,7 @@ function removeNumbersFromFileName() {
 }
 
 function getAllFiles() {
-  find "$1" -type f -name "*.$2" >"$2"Files.txt
+  find "$1" -type f -name "*.$2" > "$2"Files.txt
 }
 
 printColors() {
@@ -141,10 +124,3 @@ function create_repo() {
   printColors green "All done :)"
 }
 
-source "$GLOBAL_PATH/repos/oh_my_bash/hidden.sh"
-
-if [ $CONFIG_TYPE = "job" ]; then
-  source "$GLOBAL_PATH/repos/oh_my_bash/job.sh"
-fi
-
-export BAT_THEME="base16"
