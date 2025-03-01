@@ -19,15 +19,31 @@ When interacting with GitHub for the company account use the urls for cloning an
 
 For the personal account a few steps are required:
 
-
-
 ```bash
-cd newProject
+# cloning a repository
+
+# as specified in the ssh config file the url for the personal account is github.com-byverdu
+git clone git@github.com-byverdu:byverdu/repoName.git
+
+cd repoName
 
 # configure git to use the personal account
 git config user.email "byverdu@gmail.com"
 git config user.name "Albert Vallverdu"
 
-# as specified in the ssh config file the url for the personal account is github.com-byverdu
-git clone git@github.com-byverdu:byverdu/newProject.git
+# creating a repository
+
+mkdir newProject
+
+cd newProject
+
+git init
+
+# configure git to use the personal account
+git config user.email "byverdu@gmail.com"
+git config user.name "Albert Vallverdu"
+
+git remote add origin git@github.com-byverdu:byverdu/newProject.git # "-byverdu:" is used so we can have 2 git accounts in the same computer
+
+git push -u origin main
 ```
