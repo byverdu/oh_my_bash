@@ -5,10 +5,10 @@ ZSH_PATH=~/.zshrc
 # shellcheck source=/dev/null
 source "/Users/$HOST_NAME/Projects/repos/oh_my_bash/custom.sh"
 
+printColors green "🤘 Setting github info.... 🤘"
 
-# setting github info
-# git config --global user.email "byverdu@gmail.com"
-# git config --global user.name "Albert Vallverdu"
+git config --global user.email "byverdu@gmail.com"
+git config --global user.name "Albert Vallverdu"
 
 # Installing dependencies through brew
 printColors green "🤘 Installing UI applications.... 🤘"
