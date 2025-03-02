@@ -47,7 +47,7 @@ printColors green "🤘 Installing fonts.... 🤘"
 
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
-brew install --cask font-jetbrains-mono
+# brew install --cask font-jetbrains-mono Install manually from https://www.jetbrains.com/lp/mono/
 brew install --cask font-meslo-lg-nerd-font
 
 printColors green "🤘 Installing CLI programs.... 🤘"
@@ -64,6 +64,7 @@ brew install gh
 brew install shellcheck
 brew install bat
 brew install jandedobbeleer/oh-my-posh/oh-my-posh
+brew install zsh-syntax-highlighting
 
 {
   echo "# Custom config"
