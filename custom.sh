@@ -3,16 +3,15 @@
 # oh-my-zsh theme
 printf "🤘 \x1b[35mSetting zsh theme, alias and functions....\x1b[0m 🤘\n"
 
-# ZSH_THEME=""
-# PROMPT='%{$fg_bold[green]%} %T %B%30 ➜%{$fg_bold[green]%}%p %{$fg_bold[blue]%}`pwd` $(git_prompt_info)% $(git_prompt_status)% %{$reset_color%}
-# $ '
-# ZSH_THEME_GIT_PROMPT_CLEAN=") %{$fg_bold[green]%}✔ "
-# ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚"
-# ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✹"
-# ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%} ✖"
-# ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%} ➜"
-# ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ═"
-# ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
+PROMPT='%{$fg_bold[green]%} %T %B%30 ➜%{$fg_bold[green]%}%p %{$fg_bold[blue]%}`pwd` $(git_prompt_info)% $(git_prompt_status)% %{$reset_color%}
+$ '
+ZSH_THEME_GIT_PROMPT_CLEAN=") %{$fg_bold[green]%}✔ "
+ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚"
+ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✹"
+ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%} ✖"
+ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%} ➜"
+ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ═"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
 
 # Aliases for git
 alias g-a="git add"
@@ -22,7 +21,6 @@ alias g-b="git branch"
 alias g-o="git checkout"
 alias g-hi="git log --pretty=format:'%Cred%h%Creset %Cblue%ad%Creset | %s %Cgreen[%an]%Creset %d' --graph"
 alias g-s="git status"
-alias g-del-rem="git push origin --delete"
 alias g-name="git commit --amend --author=\"Albert Vallverdu <byverdu@gmail.com>\" --no-edit"
 alias g-d="git branch | grep -v 'master' | xargs git branch -D"
 
