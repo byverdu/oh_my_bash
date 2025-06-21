@@ -1,80 +1,95 @@
 {
-    "[dockerfile]": {
+  "[dockerfile]": {
       "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-    },
-    "[html]": {
+  },
+  "[html]": {
       "editor.defaultFormatter": "vscode.html-language-features"
-    },
-    "[javascript]": {
+  },
+  "[javascript]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[javascriptreact]": {
+  },
+  "[javascriptreact]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[json]": {
+  },
+  "[json]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescriptreact]": {
+  },
+  "[typescriptreact]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[yaml]": {
+  },
+  "[yaml]": {
       "editor.defaultFormatter": "redhat.vscode-yaml"
-    },
-    "diffEditor.ignoreTrimWhitespace": false,
-    "diffEditor.wordWrap": "on",
-    "editor.accessibilitySupport": "off",
-    "editor.codeActionsOnSave": {
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.wordWrap": "on",
+  "editor.accessibilitySupport": "off",
+  "editor.codeActionsOnSave": {
       "source.fixAll": "explicit",
       "source.fixAll.eslint": "explicit"
-    },
-    "editor.fontFamily": "JetBrains Mono Thin",
-    "editor.fontLigatures": true,
-    "editor.fontSize": 16,
-    "editor.formatOnSave": true,
-    "editor.linkedEditing": true,
-    "editor.stickyScroll.enabled": true,
-    "editor.wordWrap": "on",
-    "explorer.confirmDragAndDrop": false,
-    "git.confirmSync": false,
-    "git.openRepositoryInParentFolders": "never",
-    "gitblame.statusBarMessageClickAction": "Open tool URL",
-    "githd.blameView.enabled": false,
-    "githd.editor.disabled": true,
-    "githd.explorerView.withFolder": false,
-    "githd.logView.commitsCount": 100,
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "jestrunner.codeLens": ["run", "debug", "watch"],
-    "jestrunner.runOptions": ["--coverage=false", "--silent=true"],
-    "prettier.proseWrap": "always",
-    "shellcheck.customArgs": ["-X"],
-    "terminal.integrated.env.osx": {
+  },
+  "editor.fontFamily": "JetBrains Mono Thin",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 16,
+  "editor.formatOnSave": true,
+  "editor.linkedEditing": true,
+  "editor.stickyScroll.enabled": true,
+  "editor.wordWrap": "on",
+  "explorer.confirmDragAndDrop": false,
+  "git.confirmSync": false,
+  "git.openRepositoryInParentFolders": "never",
+  "gitblame.statusBarMessageClickAction": "Open tool URL",
+  "githd.blameView.enabled": false,
+  "githd.editor.disabled": true,
+  "githd.explorerView.withFolder": false,
+  "githd.logView.commitsCount": 100,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "jestrunner.codeLens": [
+      "run",
+      "debug",
+      "watch"
+  ],
+  "jestrunner.runOptions": [
+      "--coverage=false",
+      "--silent=true"
+  ],
+  "prettier.proseWrap": "always",
+  "shellcheck.customArgs": [
+      "-X"
+  ],
+  "terminal.integrated.env.osx": {
       "CW_NEW_SESSION": "1",
       "FIG_NEW_SESSION": "1",
       "Q_NEW_SESSION": "1"
-    },
-    "terminal.integrated.fontSize": 15,
-    "typescript.inlayHints.enumMemberValues.enabled": true,
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "update.mode": "manual",
-    "window.zoomLevel": -1,
-    "workbench.colorCustomizations": {
-      "[Dark Side]": {
-        "editor.background": "#000",
-        "panel.background": "#000",
-        "sideBar.background": "#000",
-        "terminal.background": "#000"
+  },
+  "terminal.integrated.fontSize": 15,
+  "typescript.inlayHints.enumMemberValues.enabled": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "update.mode": "manual",
+  "window.zoomLevel": -1,
+  "workbench.colorCustomizations": {
+      "[JetBrains New Dark]": {
+          "editor.background": "#000",
+          "panel.background": "#000",
+          "sideBar.background": "#000",
+          "terminal.background": "#000",
+          "statusBar.background": "#000",
+          "dropdown.background": "#000",
+          "titleBar.activeBackground": "#000",
+          "tab.activeBackground": "#000",
+          "editorGroupHeader.tabsBackground": "#000",
+          "sideBar.border": "#007ACC",
+          "sideBarSectionHeader.background": "#000"
       }
-    },
-    "workbench.colorTheme": "Dark Side",
-    "workbench.preferredDarkColorTheme": "Visual Studio Dark",
-    "git.autofetch": true,
-    "editor.multiCursorModifier": "ctrlCmd",
-    "files.autoSave": "onFocusChange",
-    "extensions.ignoreRecommendations": true,
-    "terminal.integrated.fontFamily": "MesloLGM Nerd Font",
-    "[typescript]": {
+  },
+  "workbench.colorTheme": "JetBrains New Dark",
+  "workbench.preferredDarkColorTheme": "Visual Studio Dark",
+  "git.autofetch": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "files.autoSave": "onFocusChange",
+  "extensions.ignoreRecommendations": true,
+  "terminal.integrated.fontFamily": "MesloLGM Nerd Font",
+  "[typescript]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "cursor.composer.textSizeScale": 1.15
-  }
-  
+  },
+  "cursor.composer.textSizeScale": 1.15
+}
