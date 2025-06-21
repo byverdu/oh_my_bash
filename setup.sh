@@ -18,9 +18,7 @@ brew install --cask cursor
 brew install --cask amazon-q
 brew install --cask raycast
 brew install --cask google-chrome
-brew tap homebrew/cask-versions
 brew install --cask firefox-developer-edition
-brew tap homebrew/cask
 brew install --cask visual-studio-code
 brew install --cask iterm2
 brew install --cask postman
@@ -45,7 +43,6 @@ brew install --cask slack
 
 printColors green "🤘 Installing fonts.... 🤘"
 
-brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
 # brew install --cask font-jetbrains-mono Install manually from https://www.jetbrains.com/lp/mono/
 brew install --cask font-meslo-lg-nerd-font
@@ -63,14 +60,15 @@ brew install mongodb-community@4.4
 brew install gh
 brew install shellcheck
 brew install bat
-brew install jandedobbeleer/oh-my-posh/oh-my-posh
 brew install zsh-syntax-highlighting
+brew install zsh-autosuggestions
 
 {
   echo "# Custom config"
   echo "export GLOBAL_PATH=/Users/$HOST_NAME/Projects"
   echo "source ~/Projects/repos/oh_my_bash/custom.sh"
   echo "source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+  echo "source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
   echo "export BAT_THEME=\"base16\""
   echo "eval \"$(oh-my-posh init zsh)\""
 } >> $ZSH_PATH
