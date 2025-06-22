@@ -12,7 +12,7 @@ autoload -U colors && colors
 # Segment color names
 C_USER_BG_NAME="blue"
 C_PATH_BG_NAME="yellow"
-C_GIT_BG_NAME="black"
+C_GIT_BG_NAME="yellow"
 C_GIT_DIRTY_BG_NAME="black"
 C_EXIT_BG_NAME="red" # red
 
@@ -23,7 +23,7 @@ SEGMENT_PATH_BG="%{$bg[$C_PATH_BG_NAME]%}"
 SEGMENT_PATH_FG="%{$fg[black]%}"
 SEGMENT_GIT_BG="%{$bg[$C_GIT_BG_NAME]%}"
 SEGMENT_GIT_FG="%{$fg[black]%}"
-SEGMENT_GIT_DIRTY_BG="%{$bg[$C_GIT_DIRTY_BG_NAME]%}"
+SEGMENT_GIT_DIRTY_BG="%{$bg[black]%}"
 SEGMENT_GIT_DIRTY_FG="%{$fg_bold[white]%}"
 SEGMENT_EXIT_BG="%{$bg[$C_EXIT_BG_NAME]%}"
 SEGMENT_EXIT_FG="%{$fg[white]%}"
