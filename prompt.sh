@@ -12,7 +12,7 @@ autoload -U colors && colors
 # Segment color names
 C_USER_BG_NAME="blue"
 C_PATH_BG_NAME="yellow"
-C_GIT_BG_NAME="yellow"
+C_GIT_BG_NAME="black"
 C_GIT_DIRTY_BG_NAME="black"
 C_EXIT_BG_NAME="red" # red
 
