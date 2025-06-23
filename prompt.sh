@@ -162,4 +162,10 @@ build_prompt() {
 
 # Enable the prompt function - this is the only execution that should happen
 autoload -Uz add-zsh-hook
-add-zsh-hook precmd build_prompt 
+add-zsh-hook precmd build_prompt
+
+# Manual refresh function - call this whenever you want to update the prompt
+refresh() {
+    build_prompt
+    print -P "$PS1"
+} 
