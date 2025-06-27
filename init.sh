@@ -28,7 +28,7 @@ if [[ "$homebrew" =~ ^([yY][eE][sS]|[yY])+$ ]]; then
 
   printColors orange "adding Homebrew to PATH"
 
-  echo >> "/Users/$HOST_NAME/.zprofile"
+  echo >> "/Users/$HOST_NAME/.zprofile" || exit 1
   echo "eval $(/opt/homebrew/bin/brew shellenv)" >> "/Users/$HOST_NAME/.zprofile"
   eval "$(/opt/homebrew/bin/brew shellenv)"
 
