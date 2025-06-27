@@ -67,10 +67,10 @@ brew install zsh-autosuggestions
   echo "# Custom config"
   echo "export GLOBAL_PATH=/Users/$HOST_NAME/Projects"
   echo "source ~/Projects/repos/oh_my_bash/custom.sh"
+  echo "source ~/Projects/repos/oh_my_bash/prompt.sh"
   echo "source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
   echo "source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
   echo "export BAT_THEME=\"base16\""
-  echo "eval \"$(oh-my-posh init zsh)\""
 } >> $ZSH_PATH
 
 printColors green "🤘 NVM setup 🤘"
