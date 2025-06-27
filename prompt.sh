@@ -1,47 +1,3 @@
-# Custom Agnoster-inspired theme for zsh
-# Features:
-# - Username and time
-# - Current directory with truncation
-# - Git branch and status
-# - Exit code for failed commands
-# - Color-coded segments
-
-# Color definitions
-autoload -U colors && colors
-
-# Segment color names
-C_USER_BG_NAME="blue"
-C_PATH_BG_NAME="yellow"
-C_GIT_BG_NAME="black"
-C_GIT_DIRTY_BG_NAME="black"
-C_EXIT_BG_NAME="red" # red
-
-# Segment colors
-SEGMENT_USER_BG="%{$bg[$C_USER_BG_NAME]%}"
-SEGMENT_USER_FG="%{$fg[black]%}"
-SEGMENT_PATH_BG="%{$bg[$C_PATH_BG_NAME]%}"
-SEGMENT_PATH_FG="%{$fg[black]%}"
-SEGMENT_GIT_BG="%{$bg[$C_GIT_BG_NAME]%}"
-SEGMENT_GIT_FG="%{$fg_bold[white]%}"
-SEGMENT_GIT_DIRTY_BG="%{$bg[black]%}"
-SEGMENT_GIT_DIRTY_FG="%{$fg_bold[white]%}"
-SEGMENT_EXIT_BG="%{$bg[$C_EXIT_BG_NAME]%}"
-SEGMENT_EXIT_FG="%{$fg[white]%}"
-SEGMENT_TIME_BG="%{$bg[magenta]%}"
-SEGMENT_TIME_FG="%{$fg[white]%}"
-
-# Reset colors
-RESET="%{$reset_color%}"
-
-# Git status icons and colors from custom.sh
-GIT_ICON_CLEAN="%{$fg_bold[green]%}✔"
-GIT_ICON_ADDED="%{$fg[green]%}✚"
-GIT_ICON_MODIFIED="%{$fg[blue]%}✹"
-GIT_ICON_DELETED="%{$fg[red]%}✖"
-GIT_ICON_RENAMED="%{$fg[magenta]%}➜"
-GIT_ICON_UNMERGED="%{$fg[yellow]%}═"
-GIT_ICON_UNTRACKED="%{$fg[cyan]%}✭"
-
 # Separator character
 SEPARATOR=""
 
@@ -68,14 +24,41 @@ build_prompt_segment() {
 
     if [[ -n "$OLD_BG_NAME" ]]; then
         # Draw separator with the color of the previous segment's background
-        echo -n "%{$fg[$OLD_BG_NAME]%}%{$BG%}$SEPARATOR%{$reset_color%}"
+        echo -n "${FG_COLORS[$OLD_BG_NAME]}${BG_COLORS[$BG]}$SEPARATOR${RESET_CODE}"
     fi
 
     # Draw segment
-    echo -n "%{$BG%}%{$FG%} $CONTENT %{$reset_color%}"
+    echo -n "${BG_COLORS[$BG]}${FG_COLORS[$FG]} $CONTENT ${RESET_CODE}"
 }
 
-# Main prompt function
+# ANSI color codes for PROMPT_SUBST
+declare -A FG_COLORS BG_COLORS
+FG_COLORS[black]="\033[30m"
+FG_COLORS[red]="\033[31m"
+FG_COLORS[green]="\033[32m"
+FG_COLORS[yellow]="\033[33m"
+FG_COLORS[blue]="\033[34m"
+FG_COLORS[magenta]="\033[35m"
+FG_COLORS[cyan]="\033[36m"
+FG_COLORS[white]="\033[37m"
+FG_COLORS[bold_white]="\033[1;37m"
+FG_COLORS[bold_green]="\033[1;32m"
+
+BG_COLORS[black]="\033[40m"
+BG_COLORS[red]="\033[41m"
+BG_COLORS[green]="\033[42m"
+BG_COLORS[yellow]="\033[43m"
+BG_COLORS[blue]="\033[44m"
+BG_COLORS[magenta]="\033[45m"
+BG_COLORS[cyan]="\033[46m"
+BG_COLORS[white]="\033[47m"
+
+RESET_CODE="\033[0m"
+
+# Enable command substitution in prompts
+setopt PROMPT_SUBST
+
+# Modified build_prompt function that returns the prompt instead of setting PS1
 build_prompt() {
     # Store exit code
     EXIT_CODE=$?
@@ -88,16 +71,16 @@ build_prompt() {
 
     # Username and time
     segments+=("%n@$(date +'%H:%M')")
-    bgs+=("$SEGMENT_USER_BG")
-    fgs+=("$SEGMENT_USER_FG")
-    bg_color_names+=("$C_USER_BG_NAME")
+    bgs+=("blue")
+    fgs+=("black")
+    bg_color_names+=("blue")
     last_segment_is_git=false
 
     # Current directory
     segments+=("$(pwd | sed "s|$HOME|~|")")
-    bgs+=("$SEGMENT_PATH_BG")
-    fgs+=("$SEGMENT_PATH_FG")
-    bg_color_names+=("$C_PATH_BG_NAME")
+    bgs+=("yellow")
+    fgs+=("black")
+    bg_color_names+=("yellow")
     last_segment_is_git=false
 
     # Git information
@@ -108,26 +91,26 @@ build_prompt() {
 
         if [[ -n "$git_status" ]]; then
             # Dirty repo: check for status and add icons
-            if echo "$git_status" | grep -q "A "; then git_status_icons+="$GIT_ICON_ADDED "; fi
-            if echo "$git_status" | grep -q "M";   then git_status_icons+="$GIT_ICON_MODIFIED "; fi
-            if echo "$git_status" | grep -q "D "; then git_status_icons+="$GIT_ICON_DELETED "; fi
-            if echo "$git_status" | grep -q "R "; then git_status_icons+="$GIT_ICON_RENAMED "; fi
-            if echo "$git_status" | grep -q "UU";  then git_status_icons+="$GIT_ICON_UNMERGED "; fi
-            if echo "$git_status" | grep -q "??";  then git_status_icons+="$GIT_ICON_UNTRACKED "; fi
+            if echo "$git_status" | grep -q "A "; then git_status_icons+="${FG_COLORS[green]}✚ "; fi
+            if echo "$git_status" | grep -q "M";   then git_status_icons+="${FG_COLORS[blue]}✹ "; fi
+            if echo "$git_status" | grep -q "D "; then git_status_icons+="${FG_COLORS[red]}✖ "; fi
+            if echo "$git_status" | grep -q "R "; then git_status_icons+="${FG_COLORS[magenta]}➜ "; fi
+            if echo "$git_status" | grep -q "UU";  then git_status_icons+="${FG_COLORS[yellow]}═ "; fi
+            if echo "$git_status" | grep -q "??";  then git_status_icons+="${FG_COLORS[cyan]}✭ "; fi
 
             # Trim trailing space
             git_status_icons=${git_status_icons%% }
 
             segments+=(" $git_branch $git_status_icons")
-            bgs+=("$SEGMENT_GIT_DIRTY_BG")
-            fgs+=("$SEGMENT_GIT_DIRTY_FG")
-            bg_color_names+=("$C_GIT_DIRTY_BG_NAME")
+            bgs+=("black")
+            fgs+=("bold_white")
+            bg_color_names+=("black")
         else
             # Clean repo
-            segments+=(" $git_branch $GIT_ICON_CLEAN")
-            bgs+=("$SEGMENT_GIT_BG")
-            fgs+=("$SEGMENT_GIT_FG")
-            bg_color_names+=("$C_GIT_BG_NAME")
+            segments+=(" $git_branch ${FG_COLORS[bold_green]}✔")
+            bgs+=("black")
+            fgs+=("bold_white")
+            bg_color_names+=("black")
         fi
         last_segment_is_git=true
     fi
@@ -136,9 +119,9 @@ build_prompt() {
     if [[ $EXIT_CODE -ne 0 ]]; then
         local error_reason=$(get_error_reason $EXIT_CODE)
         segments+=("👻 $error_reason")
-        bgs+=("$SEGMENT_EXIT_BG")
-        fgs+=("$SEGMENT_EXIT_FG")
-        bg_color_names+=("$C_EXIT_BG_NAME")
+        bgs+=("red")
+        fgs+=("white")
+        bg_color_names+=("red")
         last_segment_is_git=false
     fi
 
@@ -152,20 +135,13 @@ build_prompt() {
 
     # Final separator
     if [[ "$last_segment_is_git" = false && -n "$last_bg_name" ]]; then
-        prompt_line+="%{$fg[$last_bg_name]%}%k$SEPARATOR%{$reset_color%}"
+        prompt_line+="${FG_COLORS[$last_bg_name]}$SEPARATOR$RESET_CODE"
     fi
 
-    # Set the prompt
-    PS1="$prompt_line
-❯ "
+    # Return the prompt instead of setting it
+    printf "%b" "$prompt_line"
 }
 
-# Enable the prompt function - this is the only execution that should happen
-autoload -Uz add-zsh-hook
-add-zsh-hook precmd build_prompt
-
-# Manual refresh function - call this whenever you want to update the prompt
-refresh() {
-    build_prompt
-    print -P "$PS1"
-} 
+# Set the prompt to call the function dynamically
+PS1='$(build_prompt)
+❯ '
