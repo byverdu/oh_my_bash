@@ -1,0 +1,96 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "icon_theme": "Catppuccin Mocha",
+  "agent": {
+    "single_file_review": false
+  },
+  "show_edit_predictions": false,
+  "theme": "VSCode Dark Polished",
+  "autosave": "on_focus_change",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "buffer_font_family": "JetBrains Mono NL",
+  "buffer_font_size": 15,
+  "buffer_font_weight": 100,
+  "ui_font_family": "Fira Code",
+  "ui_font_size": 15,
+  "ui_font_weight": 100,
+  "tab_size": 2,
+  "minimap": { "show": "always" },
+  "base_keymap": "VSCode",
+  "soft_wrap": "editor_width",
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    },
+    "hunk_style": "staged_hollow"
+  },
+  "gutter": {
+    "min_line_number_digits": 3 // Reserve space for N digit line numbers
+  },
+  "tabs": {
+    "git_status": true, // Color to show git status
+    "close_position": "right", // Close button position (left, right, hidden)
+    "show_close_button": "hover", // Close button shown (hover, always, hidden)
+    "file_icons": true, // Icon showing file type
+    // Show diagnostics in file icon (off, errors, all). Requires file_icons=true
+    "show_diagnostics": "all"
+  },
+  "git_panel": {
+    "button": true, // Show/hide status bar icon
+    "dock": "left", // Where to dock: left, right
+    "status_style": "label_color", // label_color, icon
+    "sort_by_path": false, // Sort by path (false) or status (true)
+    "scrollbar": {
+      "show": "never" // Show/hide: (auto, system, always, never)
+    }
+  },
+  "always_treat_brackets_as_autoclosed": true,
+  "features": { "edit_prediction_provider": "zed" },
+  "edit_predictions": { "mode": "subtle" },
+  "format_on_save": "on",
+  "languages": {
+    "JavaScript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "TypeScript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    }
+  },
+  "file_scan_inclusions": [".dev/**"],
+  "experimental.theme_overrides": {
+    // Buffer/Editor background
+    "editor.background": "#000",
+
+    // UI Panel backgrounds
+    "panel.background": "#000",
+    "toolbar.background": "#000",
+    "tab_bar.background": "#000",
+    "status_bar.background": "#000",
+    "tab.inactive_background": "#000",
+    "editor.gutter.background": "#000",
+
+    // Sidebar backgrounds
+    "search.match_background": "#000",
+
+    // Terminal background
+    "terminal.background": "#000",
+
+    // Additional UI elements
+    "elevated_surface.background": "#000",
+    "surface.background": "#000"
+  }
+}
