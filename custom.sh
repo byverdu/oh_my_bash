@@ -68,16 +68,16 @@ function create_repo() {
 
   gh --version || {
     printColors red "Github CLI is not installed https://github.com/cli/cli#installation"
-    exit 1
+    return 1
   }
 
   if [ -z "$1" ]; then
     printColors red "Repository name must exist"
-    exit 1
+    return 1
   fi
 
   mkdir "$GLOBAL_PATH/repos/$1"
-  cd "$GLOBAL_PATH/repos/$1" || exit
+  cd "$GLOBAL_PATH/repos/$1" || return 1
 
   git init
 
