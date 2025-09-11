@@ -19,6 +19,7 @@
     "metrics": false
   },
   "buffer_font_family": "JetBrains Mono",
+  "extend_comment_on_newline": false,
   "buffer_font_size": 15,
   "buffer_font_weight": 100,
   "ui_font_family": "Fira Code",
