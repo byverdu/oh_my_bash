@@ -9,8 +9,13 @@
 {
   "icon_theme": "Catppuccin Mocha",
   "agent": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4.1"
+    },
     "single_file_review": false
   },
+  "extend_comment_on_newline": false,
   "show_edit_predictions": false,
   "theme": "VSCode Dark Polished",
   "autosave": "on_focus_change",
@@ -19,7 +24,6 @@
     "metrics": false
   },
   "buffer_font_family": "JetBrains Mono",
-  "extend_comment_on_newline": false,
   "buffer_font_size": 15,
   "buffer_font_weight": 100,
   "ui_font_family": "Fira Code",
@@ -92,6 +96,10 @@
 
     // Additional UI elements
     "elevated_surface.background": "#000",
-    "surface.background": "#000"
+    "surface.background": "#000",
+    "modified": "#FFBD44",
+    "created": "#00CA4E",
+    "text.muted": "#F5F5F5",
+    "deleted": "#FF605C"
   }
 }
