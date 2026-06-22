@@ -24,6 +24,7 @@ alias mongo-stop="brew services stop mongodb-community@4.4"
 alias repos="cd ~/Projects/repos"
 alias git_name="git config --global user.name $1"
 alias git_email="git config --global user.email $1"
+alias zedpre="zed --preview --new ."
 
 # Functions
 
@@ -122,4 +123,3 @@ function create_repo() {
 
   printColors green "All done :)"
 }
-
