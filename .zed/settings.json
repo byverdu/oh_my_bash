@@ -56,31 +56,36 @@
   "diff_view_style": "split",
   "icon_theme": "Catppuccin Mocha",
   "agent": {
+    "dock": "right",
+    "default_profile": "ask",
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-4.1"
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4-thinking"
     },
     "single_file_review": false
   },
   "extend_comment_on_newline": false,
   "show_edit_predictions": false,
-  "theme": "VSCode Dark Polished",
+  "theme": "JetBrains New Dark",
   "autosave": "on_focus_change",
   "telemetry": {
     "diagnostics": false,
     "metrics": false
   },
   "buffer_font_family": "JetBrains Mono",
-  "buffer_font_size": 15,
+  "buffer_font_size": 14.0,
   "buffer_font_weight": 100,
   "ui_font_family": "Fira Code",
   "ui_font_size": 15,
   "ui_font_weight": 100,
   "tab_size": 2,
-  "minimap": { "show": "always" },
+  "minimap": {
+    "show": "always"
+  },
   "base_keymap": "VSCode",
   "soft_wrap": "editor_width",
   "git": {
+    "path_style": "file_path_first",
     "inline_blame": {
       "enabled": false
     },
@@ -98,6 +103,7 @@
     "show_diagnostics": "all"
   },
   "git_panel": {
+    "tree_view": false,
     "button": true, // Show/hide status bar icon
     "dock": "left", // Where to dock: left, right
     "status_style": "label_color", // label_color, icon
@@ -107,46 +113,90 @@
     }
   },
   "always_treat_brackets_as_autoclosed": true,
-  "features": { "edit_prediction_provider": "zed" },
-  "edit_predictions": { "mode": "subtle" },
+  "edit_predictions": {
+    "provider": "zed",
+    "mode": "subtle"
+  },
   "format_on_save": "on",
   "languages": {
     "JavaScript": {
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      },
+      "language_servers": [
+        "typescript-language-server",
+        "!vtsls",
+        "..."
+      ],
       "code_actions_on_format": {
-        "source.fixAll.eslint": true
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true
       }
     },
     "TypeScript": {
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      },
+      "language_servers": [
+        "typescript-language-server",
+        "!vtsls",
+        "..."
+      ],
       "code_actions_on_format": {
-        "source.fixAll.eslint": true
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true
+      }
+    },
+    "HTML": {
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      },
+      "code_actions_on_format": {
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true
+      }
+    },
+    "CSS": {
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      },
+      "code_actions_on_format": {
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true
       }
     }
   },
-  "file_scan_inclusions": [".dev/**"],
+  "file_scan_inclusions": [
+    ".dev/**"
+  ],
   "experimental.theme_overrides": {
-    // Buffer/Editor background
-    "editor.background": "#000",
-
-    // UI Panel backgrounds
-    "panel.background": "#000",
-    "toolbar.background": "#000",
-    "tab_bar.background": "#000",
-    "status_bar.background": "#000",
-    "tab.inactive_background": "#000",
-    "editor.gutter.background": "#000",
-
-    // Sidebar backgrounds
-    "search.match_background": "#000",
-
-    // Terminal background
-    "terminal.background": "#000",
-
-    // Additional UI elements
-    "elevated_surface.background": "#000",
-    "surface.background": "#000",
+    //   // Buffer/Editor background
+    //   "editor.background": "#000",
+    //   // UI Panel backgrounds
+    //   "panel.background": "#000",
+    //   "toolbar.background": "#000",
+    //   "tab_bar.background": "#000",
+    //   "status_bar.background": "#000",
+    //   "tab.inactive_background": "#000",
+    //   "editor.gutter.background": "#000",
+    //   // Sidebar backgrounds
+    //   "search.match_background": "#000",
+    //   // Terminal background
+    //   "terminal.background": "#000",
+    //   // Additional UI elements
+    //   "elevated_surface.background": "#000",
+    //   "surface.background": "#000",
     "modified": "#FFBD44",
     "created": "#00CA4E",
-    "text.muted": "#F5F5F5",
+    //   "text.muted": "#F5F5F5",
     "deleted": "#FF605C"
   }
 }
