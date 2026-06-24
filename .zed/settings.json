@@ -7,6 +7,53 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "agent_servers": {
+    "claude-acp": {
+      "default_config_options": {
+        "mode": "plan"
+      },
+      "favorite_config_option_values": {
+        "mode": [
+          "plan"
+        ]
+      },
+      "type": "registry"
+    }
+  },
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "lsp": {
+    // "vtsls": {
+    //   "settings": {
+    //     "typescript": {
+    //       "updateImportsOnFileMove": {
+    //         "enabled": "always",
+    //       },
+    //     },
+    //     "javascript": {
+    //       "updateImportsOnFileMove": {
+    //         "enabled": "always",
+    //       },
+    //     },
+    //   },
+    //   "enable_lsp_tasks": true,
+    // },
+  },
+  "prettier": {
+    "allowed": false
+  },
+  "code_actions_on_format": {
+    "source.fixAll.biome": true,
+    "source.organizeImports.biome": true
+  },
+  "diff_view_style": "split",
   "icon_theme": "Catppuccin Mocha",
   "agent": {
     "default_model": {
