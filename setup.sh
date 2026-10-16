@@ -70,7 +70,7 @@ brew install zsh-autosuggestions
   echo "source ~/Projects/repos/oh_my_bash/prompt.sh"
   echo "source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
   echo "source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-  echo "export BAT_THEME=\"base16\""
+  echo "export BAT_THEME=\"Catppuccin Mocha\""
 } >> $ZSH_PATH
 
 printColors green "🤘 NVM setup 🤘"
