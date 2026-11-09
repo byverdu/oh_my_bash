@@ -62,6 +62,7 @@ brew install shellcheck
 brew install bat
 brew install zsh-syntax-highlighting
 brew install zsh-autosuggestions
+brew install fnm # Fast Node Manager
 
 {
   echo "# Custom config"
@@ -71,29 +72,31 @@ brew install zsh-autosuggestions
   echo "source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
   echo "source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
   echo "export BAT_THEME=\"base16\""
+  # shellcheck disable=SC2016
+  echo 'eval "$(fnm env --use-on-cd --shell zsh)"'
 } >> $ZSH_PATH
 
-printColors green "🤘 NVM setup 🤘"
+# printColors green "🤘 NVM setup 🤘"
 
-echo "# NVM config" >> $ZSH_PATH
+# echo "# NVM config" >> $ZSH_PATH
 
-cd ~ || exit 1
+# cd ~ || exit 1
 
-git clone https://github.com/nvm-sh/nvm.git .nvm
+# git clone https://github.com/nvm-sh/nvm.git .nvm
 
-cd ~/.nvm || exit 1
+# cd ~/.nvm || exit 1
 
-LATEST_NVM_TAG=$(git describe --abbrev=0 --tags)
+# LATEST_NVM_TAG=$(git describe --abbrev=0 --tags)
 
-git checkout "$LATEST_NVM_TAG"
+# git checkout "$LATEST_NVM_TAG"
 
-# shellcheck source=/dev/null
-. ./nvm.sh
+# # shellcheck source=/dev/null
+# . ./nvm.sh
 
-{
-  echo "export NVM_DIR=\"$HOME/.nvm\""
-  echo "[ -s $NVM_DIR/nvm.sh ] && \. $NVM_DIR/nvm.sh"
-  echo "[ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\""
-} >> $ZSH_PATH
+# {
+#   echo "export NVM_DIR=\"$HOME/.nvm\""
+#   echo "[ -s $NVM_DIR/nvm.sh ] && \. $NVM_DIR/nvm.sh"
+#   echo "[ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\""
+# } >> $ZSH_PATH
 
 printColors green "✋✋✋ setup script has finished ✋✋✋"
