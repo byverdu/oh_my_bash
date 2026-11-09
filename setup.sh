@@ -71,13 +71,9 @@ brew install fnm # Fast Node Manager
   echo "source ~/Projects/repos/oh_my_bash/prompt.sh"
   echo "source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
   echo "source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-<<<<<<< HEAD
-  echo "export BAT_THEME=\"base16\""
+  echo "export BAT_THEME=\"Catppuccin Mocha\""
   # shellcheck disable=SC2016
   echo 'eval "$(fnm env --use-on-cd --shell zsh)"'
-=======
-  echo "export BAT_THEME=\"Catppuccin Mocha\""
->>>>>>> f59a73800bc5deaa0e4ff13c2c870b45e990fd39
 } >> $ZSH_PATH
 
 # printColors green "🤘 NVM setup 🤘"
