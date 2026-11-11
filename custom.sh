@@ -25,6 +25,9 @@ alias repos="cd ~/Projects/repos"
 alias git_name="git config --global user.name $1"
 alias git_email="git config --global user.email $1"
 alias zedpre="zed --preview --new ."
+alias tree="tree -I node_modules"
+alias cd="z"
+alias fe='fzf --bind "enter:become(code {})"'
 
 # Functions
 

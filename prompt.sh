@@ -43,6 +43,7 @@ FG_COLORS[cyan]="\033[36m"
 FG_COLORS[white]="\033[37m"
 FG_COLORS[bold_white]="\033[1;37m"
 FG_COLORS[bold_green]="\033[1;32m"
+FG_COLORS[none]="\033[39m"
 
 BG_COLORS[black]="\033[40m"
 BG_COLORS[red]="\033[41m"
@@ -52,6 +53,7 @@ BG_COLORS[blue]="\033[44m"
 BG_COLORS[magenta]="\033[45m"
 BG_COLORS[cyan]="\033[46m"
 BG_COLORS[white]="\033[47m"
+BG_COLORS[none]="\033[49m"  # terminal default background
 
 RESET_CODE="\033[0m"
 
@@ -102,15 +104,15 @@ build_prompt() {
             git_status_icons=${git_status_icons%% }
 
             segments+=(" $git_branch $git_status_icons")
-            bgs+=("black")
+            bgs+=("none")
             fgs+=("bold_white")
-            bg_color_names+=("black")
+            bg_color_names+=("none")
         else
             # Clean repo
             segments+=(" $git_branch ${FG_COLORS[bold_green]}✔")
-            bgs+=("black")
+            bgs+=("none")
             fgs+=("bold_white")
-            bg_color_names+=("black")
+            bg_color_names+=("none")
         fi
         last_segment_is_git=true
     fi
