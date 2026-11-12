@@ -43,6 +43,8 @@ FG_COLORS[cyan]="\033[36m"
 FG_COLORS[white]="\033[37m"
 FG_COLORS[bold_white]="\033[1;37m"
 FG_COLORS[bold_green]="\033[1;32m"
+FG_COLORS[dark_blue]="\033[38;5;25m"
+FG_COLORS[dark_yellow]="\033[38;5;178m"
 FG_COLORS[none]="\033[39m"
 
 BG_COLORS[black]="\033[40m"
@@ -53,6 +55,8 @@ BG_COLORS[blue]="\033[44m"
 BG_COLORS[magenta]="\033[45m"
 BG_COLORS[cyan]="\033[46m"
 BG_COLORS[white]="\033[47m"
+BG_COLORS[dark_blue]="\033[48;5;25m"
+BG_COLORS[dark_yellow]="\033[48;5;178m"
 BG_COLORS[none]="\033[49m"  # terminal default background
 
 RESET_CODE="\033[0m"
@@ -64,7 +68,7 @@ setopt PROMPT_SUBST
 build_prompt() {
     # Store exit code
     EXIT_CODE=$?
-    
+
     local segments=()
     local bgs=()
     local fgs=()
@@ -73,16 +77,16 @@ build_prompt() {
 
     # Username and time
     segments+=("%n@$(date +'%H:%M')")
-    bgs+=("blue")
-    fgs+=("black")
-    bg_color_names+=("blue")
+    bgs+=("dark_blue")
+    fgs+=("bold_white")
+    bg_color_names+=("dark_blue")
     last_segment_is_git=false
 
     # Current directory
     segments+=("$(pwd | sed "s|$HOME|~|")")
-    bgs+=("yellow")
+    bgs+=("dark_yellow")
     fgs+=("black")
-    bg_color_names+=("yellow")
+    bg_color_names+=("dark_yellow")
     last_segment_is_git=false
 
     # Git information
