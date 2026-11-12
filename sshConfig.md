@@ -15,7 +15,8 @@ Host github.com-byverdu
   IdentityFile ~/.ssh/byverdu # email address for byverdu
 ```
 
-When interacting with GitHub for the company account use the urls for cloning and pushing as you would normally do.
+When interacting with GitHub for the company account use the urls for cloning
+and pushing as you would normally do.
 
 For the personal account a few steps are required:
 
@@ -43,7 +44,8 @@ git init
 git config user.email "byverdu@gmail.com"
 git config user.name "Albert Vallverdu"
 
-git remote add origin git@github.com-byverdu:byverdu/newProject.git # "-byverdu:" is used so we can have 2 git accounts in the same computer
+git remote add origin git@github.com-byverdu:byverdu/newProject.git # "-byverdu:"
+is used so we can have 2 git accounts in the same computer
 
 git push -u origin main
 ```
