@@ -13,7 +13,11 @@ Host github.com-byverdu
   User git
   Hostname github.com
   IdentityFile ~/.ssh/byverdu # email address for byverdu
+  IdentitiesOnly yes
 ```
+
+> `ssh -T git@github.com-byverdu` will verify and return the name of the github
+> account where
 
 When interacting with GitHub for the company account use the urls for cloning
 and pushing as you would normally do.
