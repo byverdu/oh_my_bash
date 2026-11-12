@@ -27,7 +27,8 @@ brew install --cask firefox-developer-edition
 brew install --cask brave-browser
 
 # Terminals
-brew install --cask kiro-cli
+# install https://github.com/en3sis/figxit
+# install https://atuin.sh/
 brew install --cask ghostty
 brew install --cask iterm2
 
@@ -85,6 +86,11 @@ brew install fnm # Fast Node Manager
 brew install zoxide # easier than cd as it remembers navigated folders. Nice integration with kiro-cli
 brew install fzf # to search files
 
+# Allow install plugins in vim
+# Remember to move .vimrc file into ~ home directory
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 {
   echo "# Custom config"
   echo "export GLOBAL_PATH=/Users/$HOST_NAME/Projects"
@@ -120,5 +126,8 @@ brew install fzf # to search files
 #   echo "[ -s $NVM_DIR/nvm.sh ] && \. $NVM_DIR/nvm.sh"
 #   echo "[ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\""
 # } >> $ZSH_PATH
+
+# install https://atuin.sh/ ctrl + r back search replacement
+curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 
 printColors green "✋✋✋ setup script has finished ✋✋✋"
