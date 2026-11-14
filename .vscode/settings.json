@@ -37,38 +37,27 @@
   "explorer.confirmDragAndDrop": false,
   "git.confirmSync": false,
   "git.openRepositoryInParentFolders": "never",
-  "gitblame.statusBarMessageClickAction": "Open tool URL",
-  "githd.blameView.enabled": false,
+  "githd.blameView.enabled": "disabled",
   "githd.editor.disabled": true,
   "githd.explorerView.withFolder": false,
   "githd.logView.commitsCount": 100,
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "jestrunner.codeLens": [
-    "run",
-    "debug",
-    "watch"
-  ],
-  "jestrunner.runOptions": [
-    "--coverage=false",
-    "--silent=true"
-  ],
+  "js/ts.updateImportsOnFileMove.enabled": "always",
+  "jestrunner.codeLens": ["run", "debug", "watch"],
+  "jestrunner.runOptions": ["--coverage=false", "--silent=true"],
   "prettier.proseWrap": "always",
-  "shellcheck.customArgs": [
-    "-X"
-  ],
+  "shellcheck.customArgs": ["-X"],
   "terminal.integrated.env.osx": {
     "CW_NEW_SESSION": "1",
     "FIG_NEW_SESSION": "1",
     "Q_NEW_SESSION": "1"
   },
   "terminal.integrated.fontSize": 15,
-  "typescript.inlayHints.enumMemberValues.enabled": true,
-  "typescript.updateImportsOnFileMove.enabled": "always",
+  "js/ts.inlayHints.enumMemberValues.enabled": true,
   "update.mode": "manual",
   "window.zoomLevel": -1,
   "workbench.colorCustomizations": {
     "[JetBrains New Dark]": {
-      "editor.background": "#000",
+      // "editor.background": "#000",
       "panel.background": "#000",
       "sideBar.background": "#000",
       "terminal.background": "#000",
@@ -90,6 +79,5 @@
   "terminal.integrated.fontFamily": "MesloLGM Nerd Font",
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "cursor.composer.textSizeScale": 1.15
+  }
 }

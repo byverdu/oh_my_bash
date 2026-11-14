@@ -41,7 +41,7 @@ read -r -p "Do you want to show all hidden files? (y/n)" hiddenFiles
 if [[ "$hiddenFiles" =~ ^([yY][eE][sS]|[yY])+$ ]]; then
   printColors green "🤘 Showing all hidden files.... 🤘"
    defaults write com.apple.Finder AppleShowAllFiles true
-   killall Finder 
+   killall Finder
 else
   printColors orange "Skipping Homebrew"
 fi

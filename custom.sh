@@ -15,7 +15,7 @@ alias g-name="git commit --amend --author=\"Albert Vallverdu <byverdu@gmail.com>
 alias g-d="git branch | grep -v 'master' | xargs git branch -D"
 
 # Aliases for quick access commands
-alias server="python -m SimpleHTTPServer 8888"
+alias server="python3 -m http.server 8888"
 alias myip="echo $(ipconfig getifaddr $(route get example.com | grep -o 'en[^d]'))"
 alias ports="lsof -n | grep LISTEN"
 alias chromeRaw="cd / && open /Applications/Google\ Chrome\ Canary.app --args --user-data-dir=\"/var/tmp/Chrome_dev_2\" --disable-web-security --disable-site-isolation-trials"
